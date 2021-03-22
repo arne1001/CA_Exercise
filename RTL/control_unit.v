@@ -45,7 +45,7 @@ module control_unit(
             jump      = 1'b0;
          end
 	 ADDI:begin
-            reg_dst   = 1'b1;
+            reg_dst   = 1'b0;
             alu_src   = 1'b1;
             mem_2_reg = 1'b0;
             reg_write = 1'b1;
