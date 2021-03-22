@@ -10,9 +10,9 @@ module mux_2
 
    always@(*)begin
       if(select_a == 1'b1)begin
-         mux_out = input_a;
-      end else begin
          mux_out = input_b;
+      end else begin
+         mux_out = input_a;
       end
    end
 endmodule
