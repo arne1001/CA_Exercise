@@ -77,6 +77,28 @@ module control_unit(
             alu_op    = ADD_OPCODE;
             jump      = 1'b0;
          end
+         BRANCH_EQ:begin
+            reg_dst   = 1'b0;
+            alu_src   = 1'b0;
+            mem_2_reg = 1'b0;
+            reg_write = 1'b0;
+            mem_read  = 1'b0;
+            mem_write = 1'b0
+            branch    = 1'b1;
+            alu_op    = SUB_OPCODE;
+            jump      = 1'b0;
+         end
+         JUMP:begin
+            reg_dst   = 1'b0;
+            alu_src   = 1'b0;
+            mem_2_reg = 1'b0;
+            reg_write = 1'b0;
+            mem_read  = 1'b0;
+            mem_write = 1'b0;
+            branch    = 1'b0;
+            alu_op    = ADD_OPCODE;
+            jump      = 1'b1;
+         end
 
 
     
