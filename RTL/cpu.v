@@ -410,15 +410,58 @@ reg_write_pipe_ID_EX(
 
 //EX MEM
 reg_arstn_en #(.DATA_W(32))
-reg_write_pipe_ID_EX(
+branch_pipe_EX_MEM(
    .clk (clk   ),
    .arst.n(arst_n),
-   .din (reg_write),
+   .din (branch_ID_EX),
    .en (enable),
-   .dout (reg_write_ID_EX)
+   .dout (branch_EX_MEM)
    );
 
+reg_arstn_en #(.DATA_W(32))
+mem_write_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (mem_write_ID_EX),
+   .en (enable),
+   .dout (mem_write_EX_MEM)
+   );
 
+reg_arstn_en #(.DATA_W(32))
+updated_pc_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (updated_pc_ID_EX),
+   .en (enable),
+   .dout (updated_pc_EX_MEM)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+mem_read_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (mem_read_ID_EX),
+   .en (enable),
+   .dout (mem_read_EX_MEM)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+mem_read_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (mem_read_ID_EX),
+   .en (enable),
+   .dout (mem_read_EX_MEM)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+reg_write_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (reg_write_ID_EX),
+   .en (enable),
+   .dout (reg_write_EX_MEM)
+   );
 endmodule
 
 
