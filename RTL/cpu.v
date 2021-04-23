@@ -170,7 +170,6 @@ sram #(
 );
 
 
-
 mux_2 #(
    .DATA_W(32)
 ) regfile_data_mux (
@@ -179,7 +178,6 @@ mux_2 #(
    .select_a (mem_2_reg     ),
    .mux_out  (regfile_wdata)
 );
-
 
 
 branch_unit#(
@@ -191,6 +189,234 @@ branch_unit#(
    .branch_pc    (branch_pc         ),
    .jump_pc      (jump_pc         )
 );
+
+//hardware signals
+//IF ID
+reg_artsn_en #(.DATA_W(32))
+instruction_pipe_IF_ID(
+   .clk (clk   ),
+   .arst.n(arst_n ),
+   .din (instruction ),
+   .en (enable )
+   .dout (instruction_IF_ID)
+);
+
+reg_artsn_en #(.DATA_W(32))
+updated_pc_pipe_IF_ID(
+   .clk (clk   ),
+   .arst.n(arst_n ),
+   .din (updated_pc ),
+   .en (enable )
+   .dout (updated_pc_IF_ID)
+);
+
+
+//ID EX
+reg_arstn_en #(.DATA_W(32))
+updated_pc_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (updated_pc_IF_ID),
+   .en (enable),
+   .dout (updated_pc_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+rdata1_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (rdata_1),
+   .en (enable),
+   .dout (rdata1_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+rdata2_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (rdata_2),
+   .en (enable),
+   .dout (rdata2_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(5))
+registry_adress_I_type_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (instruction_IF_ID[20:16]),
+   .en (enable),
+   .dout (adress_I_type_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(5))
+registry_adress_R_type_pipe_ID_eX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (instruction_IF_ID[15:11]),
+   .en (enable),
+   .dout (adress_R_type_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+immediate_extended_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (instruction_IF_ID[20:16]),
+   .en (enable),
+   .dout (adress_I_type_ID_EX)
+   );
+
+//to branch signal
+
+//EX MEM
+reg_arstn_en #(.DATA_W(32))
+alu_out_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (alu_out),
+   .en (enable),
+   .dout (alu_out_EX_MEM)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+rdata2_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (rdata2_ID_EX),
+   .en (enable),
+   .dout (rdata2_EX_MEM)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+waddress_pipe_EX_MEM(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (regfile_waddr),
+   .en (enable),
+   .dout (waddress_EX_MEM)
+   );
+
+//MEM WB
+reg_arstn_en #(.DATA_W(32))
+waddress_pipe_MEM_WB(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (waddress_EX_MEM),
+   .en (enable),
+   .dout (waddress_MEM_WB)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+alu_out_pipe_MEM_WB(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (alu_out_EX_MEM),
+   .en (enable),
+   .dout (alu_out_MEM_WB)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+dram_data_pipe_MEM_WB(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (dram_data),
+   .en (enable),
+   .dout (dram_data_MEM_WB)
+   );
+
+//control signals
+
+//ID EX
+reg_arstn_en #(.DATA_W(32))
+reg_dst_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (reg_dst),
+   .en (enable),
+   .dout (reg_dst_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+jump_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (jump),
+   .en (enable),
+   .dout (jump_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+branch_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (branch),
+   .en (enable),
+   .dout (branch_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+mem_read_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (mem_read),
+   .en (enable),
+   .dout (mem_read_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+mem_2_reg_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (mem_2_reg),
+   .en (enable),
+   .dout (mem_2_reg_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+alu_op_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (alu_op),
+   .en (enable),
+   .dout (alu_op_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+mem_write_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (mem_write),
+   .en (enable),
+   .dout (mem_write_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+alu_src_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (alu_src),
+   .en (enable),
+   .dout (alu_src_ID_EX)
+   );
+
+reg_arstn_en #(.DATA_W(32))
+reg_write_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (reg_write),
+   .en (enable),
+   .dout (reg_write_ID_EX)
+   );
+
+//EX MEM
+reg_arstn_en #(.DATA_W(32))
+reg_write_pipe_ID_EX(
+   .clk (clk   ),
+   .arst.n(arst_n),
+   .din (reg_write),
+   .en (enable),
+   .dout (reg_write_ID_EX)
+   );
 
 
 endmodule
