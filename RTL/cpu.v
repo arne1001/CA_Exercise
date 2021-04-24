@@ -205,18 +205,18 @@ branch_unit#(
 reg_artsn_en #(.DATA_W(32))
 instruction_pipe_IF_ID(
    .clk (clk   ),
-   .arst.n(arst_n ),
+   .arst_n(arst_n ),
    .din (instruction ),
-   .en (enable )
+   .en (enable ),
    .dout (instruction_IF_ID)
 );
 
 reg_artsn_en #(.DATA_W(32))
 updated_pc_pipe_IF_ID(
    .clk (clk   ),
-   .arst.n(arst_n ),
+   .arst_n(arst_n ),
    .din (updated_pc ),
-   .en (enable )
+   .en (enable ),
    .dout (updated_pc_IF_ID)
 );
 
@@ -225,7 +225,7 @@ updated_pc_pipe_IF_ID(
 reg_arstn_en #(.DATA_W(32))
 updated_pc_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (updated_pc_IF_ID),
    .en (enable),
    .dout (updated_pc_ID_EX)
@@ -234,7 +234,7 @@ updated_pc_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 rdata1_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (rdata_1),
    .en (enable),
    .dout (rdata1_ID_EX)
@@ -243,7 +243,7 @@ rdata1_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 rdata2_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (rdata_2),
    .en (enable),
    .dout (rdata2_ID_EX)
@@ -252,7 +252,7 @@ rdata2_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(5))
 registry_address_I_type_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (instruction_IF_ID[20:16]),
    .en (enable),
    .dout (address_I_type_ID_EX)
@@ -261,7 +261,7 @@ registry_address_I_type_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(5))
 registry_address_R_type_pipe_ID_eX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (instruction_IF_ID[15:11]),
    .en (enable),
    .dout (address_R_type_ID_EX)
@@ -270,7 +270,7 @@ registry_address_R_type_pipe_ID_eX(
 reg_arstn_en #(.DATA_W(32))
 immediate_extended_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (immediate_extended),
    .en (enable),
    .dout (immediate_extended_ID_EX)
@@ -280,7 +280,7 @@ immediate_extended_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 alu_out_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (alu_out),
    .en (enable),
    .dout (alu_out_EX_MEM)
@@ -290,7 +290,7 @@ reg_arstn_en #(.DATA_W(32))
 rdata2_pipe_EX_MEM(
 
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (rdata2_ID_EX),
    .en (enable),
    .dout (rdata2_EX_MEM)
@@ -299,7 +299,7 @@ rdata2_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 waddress_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (regfile_waddr),
    .en (enable),
    .dout (waddress_EX_MEM)
@@ -308,7 +308,7 @@ waddress_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 branch_pc_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (branch_pc),
    .en (enable),
    .dout (branch_pc_EX_MEM)
@@ -318,7 +318,7 @@ branch_pc_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 waddress_pipe_MEM_WB(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (waddress_EX_MEM),
    .en (enable),
    .dout (waddress_MEM_WB)
@@ -327,7 +327,7 @@ waddress_pipe_MEM_WB(
 reg_arstn_en #(.DATA_W(32))
 alu_out_pipe_MEM_WB(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (alu_out_EX_MEM),
    .en (enable),
    .dout (alu_out_MEM_WB)
@@ -336,7 +336,7 @@ alu_out_pipe_MEM_WB(
 reg_arstn_en #(.DATA_W(32))
 dram_data_pipe_MEM_WB(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (dram_data),
    .en (enable),
    .dout (dram_data_MEM_WB)
@@ -348,7 +348,7 @@ dram_data_pipe_MEM_WB(
 reg_arstn_en #(.DATA_W(32))
 reg_dst_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (reg_dst),
    .en (enable),
    .dout (reg_dst_ID_EX)
@@ -357,7 +357,7 @@ reg_dst_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 jump_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (jump),
    .en (enable),
    .dout (jump_ID_EX)
@@ -366,7 +366,7 @@ jump_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 branch_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (branch),
    .en (enable),
    .dout (branch_ID_EX)
@@ -375,7 +375,7 @@ branch_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 mem_read_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (mem_read),
    .en (enable),
    .dout (mem_read_ID_EX)
@@ -384,7 +384,7 @@ mem_read_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 mem_2_reg_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (mem_2_reg),
    .en (enable),
    .dout (mem_2_reg_ID_EX)
@@ -393,7 +393,7 @@ mem_2_reg_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 alu_op_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (alu_op),
    .en (enable),
    .dout (alu_op_ID_EX)
@@ -402,7 +402,7 @@ alu_op_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 mem_write_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (mem_write),
    .en (enable),
    .dout (mem_write_ID_EX)
@@ -411,7 +411,7 @@ mem_write_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 alu_src_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (alu_src),
    .en (enable),
    .dout (alu_src_ID_EX)
@@ -420,7 +420,7 @@ alu_src_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 reg_write_pipe_ID_EX(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (reg_write),
    .en (enable),
    .dout (reg_write_ID_EX)
@@ -430,7 +430,7 @@ reg_write_pipe_ID_EX(
 reg_arstn_en #(.DATA_W(32))
 branch_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (branch_ID_EX),
    .en (enable),
    .dout (branch_EX_MEM)
@@ -439,7 +439,7 @@ branch_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 mem_write_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (mem_write_ID_EX),
    .en (enable),
    .dout (mem_write_EX_MEM)
@@ -448,7 +448,7 @@ mem_write_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 mem_read_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (mem_read_ID_EX),
    .en (enable),
    .dout (mem_read_EX_MEM)
@@ -457,7 +457,7 @@ mem_read_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 reg_write_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (reg_write_ID_EX),
    .en (enable),
    .dout (reg_write_EX_MEM)
@@ -466,7 +466,7 @@ reg_write_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 mem_2_reg_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (reg_write_ID_EX),
    .en (enable),
    .dout (mem_2_reg_EX_MEM)
@@ -475,7 +475,7 @@ mem_2_reg_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 zero_flag_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (zero_flag),
    .en (enable),
    .dout (zero_flag_EX_MEM)
@@ -484,7 +484,7 @@ zero_flag_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 jump_pc_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (jump_pc),
    .en (enable),
    .dout (jump_pc_EX_MEM)
@@ -493,7 +493,7 @@ jump_pc_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 jump_pipe_EX_MEM(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (jump_ID_EX),
    .en (enable),
    .dout (jump_EX_MEM)
@@ -502,7 +502,7 @@ jump_pipe_EX_MEM(
 reg_arstn_en #(.DATA_W(32))
 mem_2_reg_pipe_MEM_WB(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (mem_2_reg_EX_MEM),
    .en (enable),
    .dout (mem_2_reg_MEM_WB)
@@ -511,7 +511,7 @@ mem_2_reg_pipe_MEM_WB(
 reg_arstn_en #(.DATA_W(32))
 reg_write_pipe_MEM_WB(
    .clk (clk   ),
-   .arst.n(arst_n),
+   .arst_n(arst_n),
    .din (reg_write_EX_MEM),
    .en (enable),
    .dout (reg_write_MEM_WB)
