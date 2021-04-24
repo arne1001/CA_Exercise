@@ -481,7 +481,7 @@ zero_flag_pipe_EX_MEM(
    .dout (zero_flag_EX_MEM)
 );
 
-reg_arstn_en #(.DATA_W(1))
+reg_arstn_en #(.DATA_W(32))
 jump_pc_pipe_EX_MEM(
    .clk (clk   ),
    .arst_n(arst_n),
