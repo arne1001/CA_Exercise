@@ -235,7 +235,7 @@ reg_arstn_en #(.DATA_W(32))
 rdata1_pipe_ID_EX(
    .clk (clk   ),
    .arst_n(arst_n),
-   .din (rdata_1),
+   .din (regfile_data_1),
    .en (enable),
    .dout (rdata1_ID_EX)
 );
@@ -244,7 +244,7 @@ reg_arstn_en #(.DATA_W(32))
 rdata2_pipe_ID_EX(
    .clk (clk   ),
    .arst_n(arst_n),
-   .din (rdata_2),
+   .din (regfile_data_2),
    .en (enable),
    .dout (rdata2_ID_EX)
 );
