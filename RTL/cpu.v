@@ -296,7 +296,7 @@ rdata2_pipe_EX_MEM(
    .dout (rdata2_EX_MEM)
 );
 
-reg_arstn_en #(.DATA_W(32))
+reg_arstn_en #(.DATA_W(5))
 waddress_pipe_EX_MEM(
    .clk (clk   ),
    .arst_n(arst_n),
@@ -315,7 +315,7 @@ branch_pc_pipe_EX_MEM(
 );
 
 //MEM WB
-reg_arstn_en #(.DATA_W(32))
+reg_arstn_en #(.DATA_W(5))
 waddress_pipe_MEM_WB(
    .clk (clk   ),
    .arst_n(arst_n),
