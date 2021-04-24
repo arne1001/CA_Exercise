@@ -202,7 +202,7 @@ branch_unit#(
 
 //hardware signals
 //IF ID
-reg_artsn_en #(.DATA_W(32))
+reg_arstsn_en #(.DATA_W(32))
 instruction_pipe_IF_ID(
    .clk (clk   ),
    .arst_n(arst_n ),
@@ -211,7 +211,7 @@ instruction_pipe_IF_ID(
    .dout (instruction_IF_ID)
 );
 
-reg_artsn_en #(.DATA_W(32))
+reg_arstsn_en #(.DATA_W(32))
 updated_pc_pipe_IF_ID(
    .clk (clk   ),
    .arst_n(arst_n ),
