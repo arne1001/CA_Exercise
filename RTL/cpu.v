@@ -185,7 +185,7 @@ mux_2 #(
 ) regfile_data_mux (
    .input_a  (dram_data_MEM_WB    ),
    .input_b  (alu_out_MEM_WB      ),
-   .select_a (mem_2_reg_EX_MEM     ),
+   .select_a (mem_2_reg_MEM_WB    ),
    .mux_out  (regfile_wdata)
 );
 
