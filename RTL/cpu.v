@@ -467,7 +467,7 @@ reg_arstn_en #(.DATA_W(1))
 mem_2_reg_pipe_EX_MEM(
    .clk (clk   ),
    .arst_n(arst_n),
-   .din (reg_write_ID_EX),
+   .din (mem_2_reg_ID_EX),
    .en (enable),
    .dout (mem_2_reg_EX_MEM)
 );
