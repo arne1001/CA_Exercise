@@ -32,8 +32,9 @@ module control_unit(
 
    always@(*)begin
 
+      case(opcode)
 
-      default:begin
+         default:begin
             reg_dst   = 1'b0; 
             alu_src   = 1'b0;
             mem_2_reg = 1'b0;
@@ -45,7 +46,6 @@ module control_unit(
             jump      = 1'b0;
          end
 
-      case(opcode)
          ALU_R:begin
             reg_dst   = 1'b1;
             alu_src   = 1'b0;
@@ -112,6 +112,7 @@ module control_unit(
             alu_op    = ADD_OPCODE;
             jump      = 1'b1;
          end
+         
       endcase
    end
 
