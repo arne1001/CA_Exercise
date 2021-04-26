@@ -97,7 +97,7 @@ sram #(
 );
 
 control_unit control_unit(
-   .opcode   (instruction_IF_ID[31:26]),
+   .opcode   (instruction[31:26]),
    .reg_dst  (reg_dst           ),
    .branch   (branch            ),
    .mem_read (mem_read          ),
