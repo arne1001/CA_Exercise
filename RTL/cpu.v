@@ -104,11 +104,9 @@ mux_2 #(
 ) alu_operand_mux2 (
    .input_a (mux_rdata2_immediate ),
    .input_b (regfile_wdata   ),
-   .select_a(alu_src_ID_EX           ),
+   .select_a(forwardB           ),
    .mux_out (alu_operand_2     )
 );
-
-
 
 
 sram #(
