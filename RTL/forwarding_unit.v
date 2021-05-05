@@ -13,19 +13,19 @@ module forwarding_unit(
    );
    
    always@(*)begin
-      if((registrywrite_EXMEM == 1'b1) && (register_rd_EXMEM == register_data1))begin
+      if((registrywrite_EXMEM == 1'b1) && (register_rd_EXMEM == register_addr1))begin
          forwardA = 1'b1;
       end
          
-      if((registrywrite_EXMEM == 1'b1) && (register_rd_EXMEM == register_data2))begin
+      if((registrywrite_EXMEM == 1'b1) && (register_rd_EXMEM == register_addr2))begin
          forwardB = 1'b1;
       end
 
-      if((registrywrite_MEMWB == 1'b1) && (register_rd_MEMWB == register_data1))begin
+      if((registrywrite_MEMWB == 1'b1) && (register_rd_MEMWB == register_addr1))begin
          forwardA = 1'b1;
       end
          
-      if((registrywrite_MEMWB == 1'b1) && (register_rd_MEMWB == register_data2))begin
+      if((registrywrite_MEMWB == 1'b1) && (register_rd_MEMWB == register_addr2))begin
          forwardB = 1'b1;
       end
 
