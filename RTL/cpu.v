@@ -52,7 +52,8 @@ wire              reg_dst,branch,mem_read,mem_2_reg,
                   reg_write_EX_MEM, reg_write_MEM_WB, jump_EX_MEM,
                   forwardA, forwardB;
 wire [       4:0] regfile_waddr, waddress_EX_MEM, waddress_MEM_WB,
-                  address_I_type_ID_EX, address_R_type_ID_EX;
+                  address_I_type_ID_EX, address_R_type_ID_EX,
+                  address_register1_ID_EX, address_register2_ID_EX;
 wire [      31:0] regfile_wdata, dram_data,alu_out,
                   regfile_data_1,regfile_data_2,
                   alu_operand_2, rdata1_ID_EX, rdata2_ID_EX,
@@ -82,8 +83,8 @@ pc #(
 forwarding_unit forwarding_unit(
    .register_rd_EXMEM (waddress_EX_MEM),
    .register_rd_MEMWB (waddress_MEM_WB),
-   .register_data1 (regfile_data_1),
-   .register_data2 (regfile_data_2),
+   .register_addr1 (address_register1_ID_EX),
+   .register_addr2 (address_register2_ID_EX(),
    .registrywrite_EXMEM (reg_write_EX_MEM),
    .registrywrite_MEMWB (reg_write_MEM_WB),
    .forwardA (forwardA),
@@ -306,6 +307,23 @@ immediate_extended_pipe_ID_EX(
    .dout (immediate_extended_ID_EX)
 );
 
+reg_arstn_en #(.DATA_W(5))
+address_register1_pipe_ID_EX(
+   .clk (clk   ),
+   .arst_n(arst_n),
+   .din (instruction_IF_ID[25:21]),
+   .en (enable),
+   .dout (address_register1_ID_EX)
+);
+
+reg_arstn_en #(.DATA_W(5))
+address_register2_pipe_ID_EX(
+   .clk (clk   ),
+   .arst_n(arst_n),
+   .din (instruction_IF_ID[20:16]),
+   .en (enable),
+   .dout (address_register2_ID_EX)
+);
 //EX MEM
 reg_arstn_en #(.DATA_W(32))
 alu_out_pipe_EX_MEM(
