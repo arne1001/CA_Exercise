@@ -84,7 +84,7 @@ forwarding_unit forwarding_unit(
    .register_rd_EXMEM (waddress_EX_MEM),
    .register_rd_MEMWB (waddress_MEM_WB),
    .register_addr1 (address_register1_ID_EX),
-   .register_addr2 (address_register2_ID_EX(),
+   .register_addr2 (address_register2_ID_EX),
    .registrywrite_EXMEM (reg_write_EX_MEM),
    .registrywrite_MEMWB (reg_write_MEM_WB),
    .forwardA (forwardA),
