@@ -1,7 +1,7 @@
 
 
 
-module forwarding_unit#(
+module forwarding_unit(
    	input wire [      4:0] register_rd_EXMEM,
 		input wire [      4:0] register_rd_MEMWB,
       input wire [      4:0] register_data1,
