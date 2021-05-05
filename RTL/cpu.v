@@ -93,8 +93,8 @@ forwarding_unit forwarding_unit(
 mux_2 #(
    .DATA_W(32)
 ) alu_operand_mux1 (
-   .input_a (rdata1_ID_EX),
-   .input_b (alu_out_EX_MEM),
+   .input_a (alu_out_EX_MEM),
+   .input_b (rdata1_ID_EX),
    .select_a(forwardA           ),
    .mux_out (alu_operand_1     )
 );
@@ -102,8 +102,8 @@ mux_2 #(
 mux_2 #(
    .DATA_W(32)
 ) alu_operand_mux2 (
-   .input_a (mux_rdata2_immediate ),
-   .input_b (regfile_wdata   ),
+   .input_a (regfile_wdata),
+   .input_b (mux_rdata2_immediate),
    .select_a(forwardB           ),
    .mux_out (alu_operand_2     )
 );
