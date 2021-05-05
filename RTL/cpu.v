@@ -58,7 +58,7 @@ wire [      31:0] regfile_wdata, dram_data,alu_out,
                   regfile_data_1,regfile_data_2,
                   alu_operand_2, rdata1_ID_EX, rdata2_ID_EX,
                   rdata2_EX_MEM, alu_out_EX_MEM, alu_out_MEM_WB,
-                  dram_data_MEM_WB;
+                  dram_data_MEM_WB, alu_operand_1, mux_rdata2_immediate;
 
 wire signed [31:0] immediate_extended;
 
@@ -78,35 +78,6 @@ pc #(
    .current_pc(current_pc),
    .enable    (enable    ),
    .updated_pc(updated_pc)
-);
-
-forwarding_unit forwarding_unit(
-   .register_rd_EXMEM (waddress_EX_MEM),
-   .register_rd_MEMWB (waddress_MEM_WB),
-   .register_addr1 (address_register1_ID_EX),
-   .register_addr2 (address_register2_ID_EX),
-   .registrywrite_EXMEM (reg_write_EX_MEM),
-   .registrywrite_MEMWB (reg_write_MEM_WB),
-   .forwardA (forwardA),
-   .forwardB (forwardB)
-);
-
-mux_2 #(
-   .DATA_W(32)
-) alu_operand_mux1 (
-   .input_a (alu_out_EX_MEM),
-   .input_b (rdata1_ID_EX),
-   .select_a(forwardA           ),
-   .mux_out (alu_operand_1     )
-);
-
-mux_2 #(
-   .DATA_W(32)
-) alu_operand_mux2 (
-   .input_a (regfile_wdata),
-   .input_b (mux_rdata2_immediate),
-   .select_a(forwardB           ),
-   .mux_out (alu_operand_2     )
 );
 
 
@@ -164,6 +135,34 @@ register_file #(
    .rdata_2  (regfile_data_2    )
 );
 
+forwarding_unit forwarding_unit(
+   .register_rd_EXMEM (waddress_EX_MEM),
+   .register_rd_MEMWB (waddress_MEM_WB),
+   .register_addr1 (address_register1_ID_EX),
+   .register_addr2 (address_register2_ID_EX),
+   .registrywrite_EXMEM (reg_write_EX_MEM),
+   .registrywrite_MEMWB (reg_write_MEM_WB),
+   .forwardA (forwardA),
+   .forwardB (forwardB)
+);
+
+mux_2 #(
+   .DATA_W(32)
+) alu_operand_mux1 (
+   .input_a (alu_out_EX_MEM),
+   .input_b (rdata1_ID_EX),
+   .select_a(forwardA           ),
+   .mux_out (alu_operand_1     )
+);
+
+mux_2 #(
+   .DATA_W(32)
+) alu_operand_mux2 (
+   .input_a (regfile_wdata),
+   .input_b (mux_rdata2_immediate),
+   .select_a(forwardB           ),
+   .mux_out (alu_operand_2     )
+);
 
 alu_control alu_ctrl(
    .function_field (immediate_extended_ID_EX[5:0]),
@@ -184,8 +183,8 @@ mux_2 #(
 alu#(
    .DATA_W(32)
 ) alu(
-   .alu_in_0 (rdata1_ID_EX),
-   .alu_in_1 (alu_operand_2 ),
+   .alu_in_0 (alu_operand_1),
+   .alu_in_1 (alu_operand_2),
    .alu_ctrl (alu_control   ),
    .alu_out  (alu_out       ),
    .shft_amnt(immediate_extended_ID_EX[10:6]),
