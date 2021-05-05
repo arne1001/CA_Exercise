@@ -82,8 +82,8 @@ pc #(
 forwarding_unit forwarding_unit(
    .register_rd_EXMEM (waddress_EX_MEM),
    .register_rd_MEMWB (waddress_MEM_WB),
-   .register_adr1 (regfile_data_1),
-   .register_adr2 (regfile_data_2),
+   .register_data1 (regfile_data_1),
+   .register_data2 (regfile_data_2),
    .registrywrite_EXMEM (reg_write_EX_MEM),
    .registrywrite_MEMWB (reg_write_MEM_WB),
    .forwardA (forwardA),
