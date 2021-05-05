@@ -49,7 +49,8 @@ wire              reg_dst,branch,mem_read,mem_2_reg,
                   mem_read_ID_EX, mem_read_EX_MEM, mem_2_reg_ID_EX,
                   mem_2_reg_EX_MEM, mem_2_reg_MEM_WB, mem_write_ID_EX,
                   mem_write_EX_MEM, alu_src_ID_EX, reg_write_ID_EX,
-                  reg_write_EX_MEM, reg_write_MEM_WB, jump_EX_MEM;
+                  reg_write_EX_MEM, reg_write_MEM_WB, jump_EX_MEM,
+                  forwardA, forwardB;
 wire [       4:0] regfile_waddr, waddress_EX_MEM, waddress_MEM_WB,
                   address_I_type_ID_EX, address_R_type_ID_EX;
 wire [      31:0] regfile_wdata, dram_data,alu_out,
@@ -77,6 +78,37 @@ pc #(
    .enable    (enable    ),
    .updated_pc(updated_pc)
 );
+
+forwarding_unit forwarding_unit(
+   .register_rd_EXMEM (waddress_EX_MEM),
+   .register_rd_MEMWB (waddress_MEM_WB),
+   .register_adr1 (regfile_data_1),
+   .register_adr2 (regfile_data_2),
+   .registrywrite_EXMEM (reg_write_EX_MEM),
+   .registrywrite_MEMWB (reg_write_MEM_WB),
+   .forwardA (forwardA),
+   .forwardB (forwardB)
+);
+
+mux_2 #(
+   .DATA_W(32)
+) alu_operand_mux (
+   .input_a (rdata1_ID_EX),
+   .input_b (alu_out_EX_MEM),
+   .select_a(forwardA           ),
+   .mux_out (alu_operand_1     )
+);
+
+mux_2 #(
+   .DATA_W(32)
+) alu_operand_mux (
+   .input_a (mux_rdata2_immediate ),
+   .input_b (regfile_wdata   ),
+   .select_a(alu_src_ID_EX           ),
+   .mux_out (alu_operand_2     )
+);
+
+
 
 
 sram #(
@@ -146,7 +178,7 @@ mux_2 #(
    .input_a (immediate_extended_ID_EX),
    .input_b (rdata2_ID_EX    ),
    .select_a(alu_src_ID_EX           ),
-   .mux_out (alu_operand_2     )
+   .mux_out (mux_rdata2_immediate     )
 );
 
 
