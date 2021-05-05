@@ -10,26 +10,25 @@ module forwarding_unit(
       input wire [      2:0] registrywrite_MEMWB,
 		output reg [      2:0] forwardA,
       output reg [      2:0] forwardB
-
    );
    
    always@(*)begin
       if(registrywrite_EXMEM == 1 and register_rd_EXMEM == register_data1) begin
-         forwardA = 2
+         forwardA = 2;
       end
          
 
       if(registrywrite_EXMEM == 1 and register_rd_EXMEM == register_data2) begin
-         forwardB = 2
+         forwardB = 2;
       end
 
       if(registrywrite_MEMWB == 1 and register_rd_MEMWB == register_data1) begin
-         forwardA = 2
+         forwardA = 2;
       end
          
 
       if(registrywrite_MEMWB == 1 and register_rd_MEMWB == register_data2) begin
-         forwardB = 2
+         forwardB = 2;
       end
 
    end
