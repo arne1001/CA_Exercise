@@ -174,6 +174,11 @@ Statistics for MUX_OPs
 | register_file_DATA_W32/41 |   32   |   32    |      5       |
 ===============================================================
 Presto compilation completed successfully.
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Information: Building the design 'mux_2' instantiated from design 'cpu' with
+	the parameters "DATA_W=32". (HDL-193)
+Presto compilation completed successfully.
 Information: Building the design 'alu_control'. (HDL-193)
 
 Statistics for case statements in always block at line 42 in file
@@ -191,9 +196,6 @@ Statistics for case statements in always block at line 57 in file
 ===============================================
 |            58            |    auto/auto     |
 ===============================================
-Presto compilation completed successfully.
-Information: Building the design 'mux_2' instantiated from design 'cpu' with
-	the parameters "DATA_W=32". (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'alu' instantiated from design 'cpu' with
 	the parameters "DATA_W=32". (HDL-193)
@@ -221,6 +223,54 @@ Information: Building the design 'branch_unit' instantiated from design 'cpu' wi
 	the parameters "DATA_W=32". (HDL-193)
 Warning:  ../RTL/branch_unit.v:28: signed to unsigned part selection occurs. (VER-318)
 Presto compilation completed successfully.
+Information: Building the design 'reg_arstn_en' instantiated from design 'cpu' with
+	the parameters "DATA_W=32". (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_arstn_en_DATA_W32 line 16 in file
+		'../RTL/reg_arstn_en.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        r_reg        | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'reg_arstn_en' instantiated from design 'cpu' with
+	the parameters "DATA_W=5". (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_arstn_en_DATA_W5 line 16 in file
+		'../RTL/reg_arstn_en.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        r_reg        | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'reg_arstn_en' instantiated from design 'cpu' with
+	the parameters "DATA_W=1". (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_arstn_en_DATA_W1 line 16 in file
+		'../RTL/reg_arstn_en.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        r_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'reg_arstn_en' instantiated from design 'cpu' with
+	the parameters "DATA_W=2". (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_arstn_en_DATA_W2 line 16 in file
+		'../RTL/reg_arstn_en.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        r_reg        | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
 Information: Building the design 'reg_arstn_en' instantiated from design 'pc_DATA_W32' with
 	the parameters "DATA_W=32,PRESET_VAL=32'h00000000". (HDL-193)
 
@@ -233,6 +283,7 @@ Inferred memory devices in process
 |        r_reg        | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
 ===============================================================================
 Presto compilation completed successfully.
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 1
 current_design $top_des_name
 Current design is 'cpu'.
@@ -241,6 +292,7 @@ read_sdc design_constraints.sdc -echo
 
 Reading SDC version 2.0...
 set_driving_cell -lib_cell INVX0_RVT  [all_inputs]
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Warning: Design rule attributes from the driving cell will be
 	set on the port. (UID-401)
 Warning: Design rule attributes from the driving cell will be
@@ -514,7 +566,10 @@ Warning: Design rule attributes from the driving cell will be
 set period_ns  100
 set clock_uncertainty      0.1
 create_clock -name clk  -period $period_ns [list "clk"]
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 set_clock_uncertainty      $clock_uncertainty     [get_clocks]
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 set half_cycle_delay [expr $period_ns/2]
 #set_input_delay  $half_cycle_delay [ all_inputs ] -clock clk 
 #set_output_delay $half_cycle_delay [ all_outputs]                             -clock clk
@@ -525,11 +580,12 @@ set dont_touch_network arst_n
 #write -hierarchy -f ddc -output "./ddc/top_dig.ddcg"
 #uniquify
 check_design
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 check_design summary:
 Version:     N-2017.09-SP3
-Date:        Mon Mar 29 15:20:10 2021
+Date:        Fri May  7 20:51:46 2021
 ****************************************
 
                    Name                                            Total
@@ -540,9 +596,12 @@ Inputs/Outputs                                                    136
     Shorted outputs (LINT-31)                                       2
     Constant outputs (LINT-52)                                      2
 
-Cells                                                              52
+Cells                                                              68
     Connected to power or ground (LINT-32)                         34
-    Nets connected to multiple pins on same cell (LINT-33)         18
+    Nets connected to multiple pins on same cell (LINT-33)         34
+
+Tristate                                                           22
+    A tristate bus has a non tri-state driver (LINT-34)            22
 --------------------------------------------------------------------------------
 
 Warning: In design 'sram_ADDR_W9_DATA_W32', port 'addr[31]' is not connected to any nets. (LINT-28)
@@ -749,51 +808,144 @@ Warning: In design 'cpu', a pin on submodule 'instruction_memory' is connected t
    Pin 'wdata[0]' is connected to logic 0. 
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'instruction_memory'. (LINT-33)
    Net '*Logic0*' is connected to pins 'wen', 'wdata[31]'', 'wdata[30]', 'wdata[29]', 'wdata[28]', 'wdata[27]', 'wdata[26]', 'wdata[25]', 'wdata[24]', 'wdata[23]', 'wdata[22]', 'wdata[21]', 'wdata[20]', 'wdata[19]', 'wdata[18]', 'wdata[17]', 'wdata[16]', 'wdata[15]', 'wdata[14]', 'wdata[13]', 'wdata[12]', 'wdata[11]', 'wdata[10]', 'wdata[9]', 'wdata[8]', 'wdata[7]', 'wdata[6]', 'wdata[5]', 'wdata[4]', 'wdata[3]', 'wdata[2]', 'wdata[1]', 'wdata[0]'.
-Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'alu_operand_mux'. (LINT-33)
-   Net 'immediate_extended_31' is connected to pins 'input_a[31]', 'input_a[30]'', 'input_a[29]', 'input_a[28]', 'input_a[27]', 'input_a[26]', 'input_a[25]', 'input_a[24]', 'input_a[23]', 'input_a[22]', 'input_a[21]', 'input_a[20]', 'input_a[19]', 'input_a[18]', 'input_a[17]', 'input_a[16]', 'input_a[15]'.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended_31' is connected to pins 'instruction[15]', 'branch_offset[31]'', 'branch_offset[30]', 'branch_offset[29]', 'branch_offset[28]', 'branch_offset[27]', 'branch_offset[26]', 'branch_offset[25]', 'branch_offset[24]', 'branch_offset[23]', 'branch_offset[22]', 'branch_offset[21]', 'branch_offset[20]', 'branch_offset[19]', 'branch_offset[18]', 'branch_offset[17]', 'branch_offset[16]', 'branch_offset[15]'.
+   Net 'immediate_extended_ID_EX[31]' is connected to pins 'instruction[31]', 'branch_offset[31]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[14]' is connected to pins 'instruction[14]', 'branch_offset[14]''.
+   Net 'immediate_extended_ID_EX[30]' is connected to pins 'instruction[30]', 'branch_offset[30]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[13]' is connected to pins 'instruction[13]', 'branch_offset[13]''.
+   Net 'immediate_extended_ID_EX[29]' is connected to pins 'instruction[29]', 'branch_offset[29]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[12]' is connected to pins 'instruction[12]', 'branch_offset[12]''.
+   Net 'immediate_extended_ID_EX[28]' is connected to pins 'instruction[28]', 'branch_offset[28]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[11]' is connected to pins 'instruction[11]', 'branch_offset[11]''.
+   Net 'immediate_extended_ID_EX[27]' is connected to pins 'instruction[27]', 'branch_offset[27]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[10]' is connected to pins 'instruction[10]', 'branch_offset[10]''.
+   Net 'immediate_extended_ID_EX[26]' is connected to pins 'instruction[26]', 'branch_offset[26]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[9]' is connected to pins 'instruction[9]', 'branch_offset[9]''.
+   Net 'immediate_extended_ID_EX[25]' is connected to pins 'instruction[25]', 'branch_offset[25]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[8]' is connected to pins 'instruction[8]', 'branch_offset[8]''.
+   Net 'immediate_extended_ID_EX[24]' is connected to pins 'instruction[24]', 'branch_offset[24]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[7]' is connected to pins 'instruction[7]', 'branch_offset[7]''.
+   Net 'immediate_extended_ID_EX[23]' is connected to pins 'instruction[23]', 'branch_offset[23]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[6]' is connected to pins 'instruction[6]', 'branch_offset[6]''.
+   Net 'immediate_extended_ID_EX[22]' is connected to pins 'instruction[22]', 'branch_offset[22]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[5]' is connected to pins 'instruction[5]', 'branch_offset[5]''.
+   Net 'immediate_extended_ID_EX[21]' is connected to pins 'instruction[21]', 'branch_offset[21]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[4]' is connected to pins 'instruction[4]', 'branch_offset[4]''.
+   Net 'immediate_extended_ID_EX[20]' is connected to pins 'instruction[20]', 'branch_offset[20]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[3]' is connected to pins 'instruction[3]', 'branch_offset[3]''.
+   Net 'immediate_extended_ID_EX[19]' is connected to pins 'instruction[19]', 'branch_offset[19]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[2]' is connected to pins 'instruction[2]', 'branch_offset[2]''.
+   Net 'immediate_extended_ID_EX[18]' is connected to pins 'instruction[18]', 'branch_offset[18]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[1]' is connected to pins 'instruction[1]', 'branch_offset[1]''.
+   Net 'immediate_extended_ID_EX[17]' is connected to pins 'instruction[17]', 'branch_offset[17]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[0]' is connected to pins 'instruction[0]', 'branch_offset[0]''.
+   Net 'immediate_extended_ID_EX[16]' is connected to pins 'instruction[16]', 'branch_offset[16]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[15]' is connected to pins 'instruction[15]', 'branch_offset[15]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[14]' is connected to pins 'instruction[14]', 'branch_offset[14]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[13]' is connected to pins 'instruction[13]', 'branch_offset[13]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[12]' is connected to pins 'instruction[12]', 'branch_offset[12]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[11]' is connected to pins 'instruction[11]', 'branch_offset[11]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[10]' is connected to pins 'instruction[10]', 'branch_offset[10]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[9]' is connected to pins 'instruction[9]', 'branch_offset[9]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[8]' is connected to pins 'instruction[8]', 'branch_offset[8]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[7]' is connected to pins 'instruction[7]', 'branch_offset[7]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[6]' is connected to pins 'instruction[6]', 'branch_offset[6]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[5]' is connected to pins 'instruction[5]', 'branch_offset[5]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[4]' is connected to pins 'instruction[4]', 'branch_offset[4]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[3]' is connected to pins 'instruction[3]', 'branch_offset[3]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[2]' is connected to pins 'instruction[2]', 'branch_offset[2]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[1]' is connected to pins 'instruction[1]', 'branch_offset[1]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[0]' is connected to pins 'instruction[0]', 'branch_offset[0]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'immediate_extended_pipe_ID_EX'. (LINT-33)
+   Net 'immediate_extended_31' is connected to pins 'din[31]', 'din[30]'', 'din[29]', 'din[28]', 'din[27]', 'din[26]', 'din[25]', 'din[24]', 'din[23]', 'din[22]', 'din[21]', 'din[20]', 'din[19]', 'din[18]', 'din[17]', 'din[16]', 'din[15]'.
+Warning: In design 'cpu', three-state bus 'address_register1_pipe_ID_EX/dout[0]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg[0]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_pipe_ID_EX/dout[1]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg[1]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_pipe_ID_EX/dout[2]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg[2]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_pipe_ID_EX/dout[3]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg[3]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_pipe_ID_EX/dout[4]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg[4]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_pipe_ID_EX/dout[0]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg[0]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_pipe_ID_EX/dout[1]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg[1]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_pipe_ID_EX/dout[2]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg[2]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_pipe_ID_EX/dout[3]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg[3]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_pipe_ID_EX/dout[4]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg[4]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_EX_MEM/dout[0]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg[0]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_EX_MEM/dout[1]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg[1]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_EX_MEM/dout[2]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg[2]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_EX_MEM/dout[3]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg[3]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_EX_MEM/dout[4]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg[4]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_MEM_WB/dout[0]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg[0]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_MEM_WB/dout[1]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg[1]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_MEM_WB/dout[2]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg[2]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_MEM_WB/dout[3]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg[3]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_pipe_MEM_WB/dout[4]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg[4]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'reg_write_pipe_EX_MEM/dout[0]' has non three-state driver 'reg_write_pipe_EX_MEM/r_reg[0]/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'reg_write_pipe_MEM_WB/dout[0]' has non three-state driver 'reg_write_pipe_MEM_WB/r_reg[0]/Q'. (LINT-34)
 Warning: In design 'branch_unit_DATA_W32', output port 'jump_pc[1]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'branch_unit_DATA_W32', output port 'jump_pc[0]' is connected directly to 'logic 0'. (LINT-52)
 1
 check_timing
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W2' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W1' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W5' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W5' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W5' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W5' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W5' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W5' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'reg_arstn_en_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'branch_unit_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'mux_2_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'sram_ADDR_W10_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'alu_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'mux_2_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'alu_control' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mux_2_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mux_2_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'register_file_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'mux_2_DATA_W5' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'control_unit' from '(none)' to 'ForQA'. (OPT-170)
@@ -802,8 +954,6 @@ Information: Changed wire load model for 'reg_arstn_en_32_s00000000' from '(none
 Information: Changed wire load model for 'mux_2_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'mux_2_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'pc_DATA_W32' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'alt1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'apparch' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'DW01_add_width32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for '*ADD_TC_OP_32_32_32' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'DW01_sub_width32' from '(none)' to 'ForQA'. (OPT-170)
@@ -922,6 +1072,117 @@ Warning: The following end-points are not constrained for maximum delay.
 
 End point
 ---------------
+address_register1_pipe_ID_EX/r_reg[0]/synch_enable
+address_register1_pipe_ID_EX/r_reg[1]/synch_enable
+address_register1_pipe_ID_EX/r_reg[2]/synch_enable
+address_register1_pipe_ID_EX/r_reg[3]/synch_enable
+address_register1_pipe_ID_EX/r_reg[4]/synch_enable
+address_register2_pipe_ID_EX/r_reg[0]/synch_enable
+address_register2_pipe_ID_EX/r_reg[1]/synch_enable
+address_register2_pipe_ID_EX/r_reg[2]/synch_enable
+address_register2_pipe_ID_EX/r_reg[3]/synch_enable
+address_register2_pipe_ID_EX/r_reg[4]/synch_enable
+alu_op_pipe_ID_EX/r_reg[0]/synch_enable
+alu_op_pipe_ID_EX/r_reg[1]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[0]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[1]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[2]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[3]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[4]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[5]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[6]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[7]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[8]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[9]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[10]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[11]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[12]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[13]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[14]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[15]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[16]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[17]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[18]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[19]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[20]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[21]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[22]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[23]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[24]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[25]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[26]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[27]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[28]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[29]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[30]/synch_enable
+alu_out_pipe_EX_MEM/r_reg[31]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[0]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[1]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[2]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[3]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[4]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[5]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[6]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[7]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[8]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[9]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[10]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[11]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[12]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[13]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[14]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[15]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[16]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[17]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[18]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[19]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[20]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[21]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[22]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[23]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[24]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[25]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[26]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[27]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[28]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[29]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[30]/synch_enable
+alu_out_pipe_MEM_WB/r_reg[31]/synch_enable
+alu_src_pipe_ID_EX/r_reg[0]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[0]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[1]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[2]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[3]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[4]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[5]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[6]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[7]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[8]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[9]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[10]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[11]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[12]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[13]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[14]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[15]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[16]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[17]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[18]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[19]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[20]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[21]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[22]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[23]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[24]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[25]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[26]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[27]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[28]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[29]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[30]/synch_enable
+branch_pc_pipe_EX_MEM/r_reg[31]/synch_enable
+branch_pipe_EX_MEM/r_reg[0]/synch_enable
+branch_pipe_ID_EX/r_reg[0]/synch_enable
 data_memory/process_for_mem[0].dram_inst/A2[0]
 data_memory/process_for_mem[0].dram_inst/A2[1]
 data_memory/process_for_mem[0].dram_inst/A2[2]
@@ -1242,6 +1503,70 @@ data_memory/process_for_mem[7].dram_inst/I2[28]
 data_memory/process_for_mem[7].dram_inst/I2[29]
 data_memory/process_for_mem[7].dram_inst/I2[30]
 data_memory/process_for_mem[7].dram_inst/I2[31]
+dram_data_pipe_MEM_WB/r_reg[0]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[1]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[2]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[3]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[4]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[5]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[6]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[7]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[8]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[9]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[10]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[11]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[12]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[13]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[14]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[15]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[16]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[17]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[18]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[19]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[20]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[21]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[22]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[23]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[24]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[25]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[26]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[27]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[28]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[29]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[30]/synch_enable
+dram_data_pipe_MEM_WB/r_reg[31]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[0]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[1]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[2]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[3]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[4]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[5]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[6]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[7]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[8]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[9]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[10]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[11]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[12]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[13]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[14]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[15]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[16]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[17]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[18]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[19]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[20]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[21]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[22]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[23]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[24]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[25]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[26]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[27]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[28]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[29]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[30]/synch_enable
+immediate_extended_pipe_ID_EX/r_reg[31]/synch_enable
 instruction_memory/process_for_mem[0].dram_inst/A2[0]
 instruction_memory/process_for_mem[0].dram_inst/A2[1]
 instruction_memory/process_for_mem[0].dram_inst/A2[2]
@@ -1402,6 +1727,79 @@ instruction_memory/process_for_mem[3].dram_inst/I2[28]
 instruction_memory/process_for_mem[3].dram_inst/I2[29]
 instruction_memory/process_for_mem[3].dram_inst/I2[30]
 instruction_memory/process_for_mem[3].dram_inst/I2[31]
+instruction_pipe_IF_ID/r_reg[0]/synch_enable
+instruction_pipe_IF_ID/r_reg[1]/synch_enable
+instruction_pipe_IF_ID/r_reg[2]/synch_enable
+instruction_pipe_IF_ID/r_reg[3]/synch_enable
+instruction_pipe_IF_ID/r_reg[4]/synch_enable
+instruction_pipe_IF_ID/r_reg[5]/synch_enable
+instruction_pipe_IF_ID/r_reg[6]/synch_enable
+instruction_pipe_IF_ID/r_reg[7]/synch_enable
+instruction_pipe_IF_ID/r_reg[8]/synch_enable
+instruction_pipe_IF_ID/r_reg[9]/synch_enable
+instruction_pipe_IF_ID/r_reg[10]/synch_enable
+instruction_pipe_IF_ID/r_reg[11]/synch_enable
+instruction_pipe_IF_ID/r_reg[12]/synch_enable
+instruction_pipe_IF_ID/r_reg[13]/synch_enable
+instruction_pipe_IF_ID/r_reg[14]/synch_enable
+instruction_pipe_IF_ID/r_reg[15]/synch_enable
+instruction_pipe_IF_ID/r_reg[16]/synch_enable
+instruction_pipe_IF_ID/r_reg[17]/synch_enable
+instruction_pipe_IF_ID/r_reg[18]/synch_enable
+instruction_pipe_IF_ID/r_reg[19]/synch_enable
+instruction_pipe_IF_ID/r_reg[20]/synch_enable
+instruction_pipe_IF_ID/r_reg[21]/synch_enable
+instruction_pipe_IF_ID/r_reg[22]/synch_enable
+instruction_pipe_IF_ID/r_reg[23]/synch_enable
+instruction_pipe_IF_ID/r_reg[24]/synch_enable
+instruction_pipe_IF_ID/r_reg[25]/synch_enable
+instruction_pipe_IF_ID/r_reg[26]/synch_enable
+instruction_pipe_IF_ID/r_reg[27]/synch_enable
+instruction_pipe_IF_ID/r_reg[28]/synch_enable
+instruction_pipe_IF_ID/r_reg[29]/synch_enable
+instruction_pipe_IF_ID/r_reg[30]/synch_enable
+instruction_pipe_IF_ID/r_reg[31]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[0]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[1]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[2]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[3]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[4]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[5]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[6]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[7]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[8]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[9]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[10]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[11]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[12]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[13]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[14]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[15]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[16]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[17]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[18]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[19]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[20]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[21]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[22]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[23]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[24]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[25]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[26]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[27]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[28]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[29]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[30]/synch_enable
+jump_pc_pipe_EX_MEM/r_reg[31]/synch_enable
+jump_pipe_EX_MEM/r_reg[0]/synch_enable
+jump_pipe_ID_EX/r_reg[0]/synch_enable
+mem_2_reg_pipe_EX_MEM/r_reg[0]/synch_enable
+mem_2_reg_pipe_ID_EX/r_reg[0]/synch_enable
+mem_2_reg_pipe_MEM_WB/r_reg[0]/synch_enable
+mem_read_pipe_EX_MEM/r_reg[0]/synch_enable
+mem_read_pipe_ID_EX/r_reg[0]/synch_enable
+mem_write_pipe_EX_MEM/r_reg[0]/synch_enable
+mem_write_pipe_ID_EX/r_reg[0]/synch_enable
 program_counter/pc_register/r_reg[0]/synch_enable
 program_counter/pc_register/r_reg[1]/synch_enable
 program_counter/pc_register/r_reg[2]/synch_enable
@@ -1434,6 +1832,102 @@ program_counter/pc_register/r_reg[28]/synch_enable
 program_counter/pc_register/r_reg[29]/synch_enable
 program_counter/pc_register/r_reg[30]/synch_enable
 program_counter/pc_register/r_reg[31]/synch_enable
+rdata1_pipe_ID_EX/r_reg[0]/synch_enable
+rdata1_pipe_ID_EX/r_reg[1]/synch_enable
+rdata1_pipe_ID_EX/r_reg[2]/synch_enable
+rdata1_pipe_ID_EX/r_reg[3]/synch_enable
+rdata1_pipe_ID_EX/r_reg[4]/synch_enable
+rdata1_pipe_ID_EX/r_reg[5]/synch_enable
+rdata1_pipe_ID_EX/r_reg[6]/synch_enable
+rdata1_pipe_ID_EX/r_reg[7]/synch_enable
+rdata1_pipe_ID_EX/r_reg[8]/synch_enable
+rdata1_pipe_ID_EX/r_reg[9]/synch_enable
+rdata1_pipe_ID_EX/r_reg[10]/synch_enable
+rdata1_pipe_ID_EX/r_reg[11]/synch_enable
+rdata1_pipe_ID_EX/r_reg[12]/synch_enable
+rdata1_pipe_ID_EX/r_reg[13]/synch_enable
+rdata1_pipe_ID_EX/r_reg[14]/synch_enable
+rdata1_pipe_ID_EX/r_reg[15]/synch_enable
+rdata1_pipe_ID_EX/r_reg[16]/synch_enable
+rdata1_pipe_ID_EX/r_reg[17]/synch_enable
+rdata1_pipe_ID_EX/r_reg[18]/synch_enable
+rdata1_pipe_ID_EX/r_reg[19]/synch_enable
+rdata1_pipe_ID_EX/r_reg[20]/synch_enable
+rdata1_pipe_ID_EX/r_reg[21]/synch_enable
+rdata1_pipe_ID_EX/r_reg[22]/synch_enable
+rdata1_pipe_ID_EX/r_reg[23]/synch_enable
+rdata1_pipe_ID_EX/r_reg[24]/synch_enable
+rdata1_pipe_ID_EX/r_reg[25]/synch_enable
+rdata1_pipe_ID_EX/r_reg[26]/synch_enable
+rdata1_pipe_ID_EX/r_reg[27]/synch_enable
+rdata1_pipe_ID_EX/r_reg[28]/synch_enable
+rdata1_pipe_ID_EX/r_reg[29]/synch_enable
+rdata1_pipe_ID_EX/r_reg[30]/synch_enable
+rdata1_pipe_ID_EX/r_reg[31]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[0]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[1]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[2]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[3]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[4]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[5]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[6]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[7]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[8]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[9]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[10]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[11]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[12]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[13]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[14]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[15]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[16]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[17]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[18]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[19]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[20]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[21]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[22]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[23]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[24]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[25]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[26]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[27]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[28]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[29]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[30]/synch_enable
+rdata2_pipe_EX_MEM/r_reg[31]/synch_enable
+rdata2_pipe_ID_EX/r_reg[0]/synch_enable
+rdata2_pipe_ID_EX/r_reg[1]/synch_enable
+rdata2_pipe_ID_EX/r_reg[2]/synch_enable
+rdata2_pipe_ID_EX/r_reg[3]/synch_enable
+rdata2_pipe_ID_EX/r_reg[4]/synch_enable
+rdata2_pipe_ID_EX/r_reg[5]/synch_enable
+rdata2_pipe_ID_EX/r_reg[6]/synch_enable
+rdata2_pipe_ID_EX/r_reg[7]/synch_enable
+rdata2_pipe_ID_EX/r_reg[8]/synch_enable
+rdata2_pipe_ID_EX/r_reg[9]/synch_enable
+rdata2_pipe_ID_EX/r_reg[10]/synch_enable
+rdata2_pipe_ID_EX/r_reg[11]/synch_enable
+rdata2_pipe_ID_EX/r_reg[12]/synch_enable
+rdata2_pipe_ID_EX/r_reg[13]/synch_enable
+rdata2_pipe_ID_EX/r_reg[14]/synch_enable
+rdata2_pipe_ID_EX/r_reg[15]/synch_enable
+rdata2_pipe_ID_EX/r_reg[16]/synch_enable
+rdata2_pipe_ID_EX/r_reg[17]/synch_enable
+rdata2_pipe_ID_EX/r_reg[18]/synch_enable
+rdata2_pipe_ID_EX/r_reg[19]/synch_enable
+rdata2_pipe_ID_EX/r_reg[20]/synch_enable
+rdata2_pipe_ID_EX/r_reg[21]/synch_enable
+rdata2_pipe_ID_EX/r_reg[22]/synch_enable
+rdata2_pipe_ID_EX/r_reg[23]/synch_enable
+rdata2_pipe_ID_EX/r_reg[24]/synch_enable
+rdata2_pipe_ID_EX/r_reg[25]/synch_enable
+rdata2_pipe_ID_EX/r_reg[26]/synch_enable
+rdata2_pipe_ID_EX/r_reg[27]/synch_enable
+rdata2_pipe_ID_EX/r_reg[28]/synch_enable
+rdata2_pipe_ID_EX/r_reg[29]/synch_enable
+rdata2_pipe_ID_EX/r_reg[30]/synch_enable
+rdata2_pipe_ID_EX/r_reg[31]/synch_enable
 rdata_ext[0]
 rdata_ext[1]
 rdata_ext[2]
@@ -1498,6 +1992,95 @@ rdata_ext_2[28]
 rdata_ext_2[29]
 rdata_ext_2[30]
 rdata_ext_2[31]
+reg_dst_pipe_ID_EX/r_reg[0]/synch_enable
+reg_write_pipe_EX_MEM/r_reg[0]/synch_enable
+reg_write_pipe_ID_EX/r_reg[0]/synch_enable
+reg_write_pipe_MEM_WB/r_reg[0]/synch_enable
+registry_address_I_type_pipe_ID_EX/r_reg[0]/synch_enable
+registry_address_I_type_pipe_ID_EX/r_reg[1]/synch_enable
+registry_address_I_type_pipe_ID_EX/r_reg[2]/synch_enable
+registry_address_I_type_pipe_ID_EX/r_reg[3]/synch_enable
+registry_address_I_type_pipe_ID_EX/r_reg[4]/synch_enable
+registry_address_R_type_pipe_ID_eX/r_reg[0]/synch_enable
+registry_address_R_type_pipe_ID_eX/r_reg[1]/synch_enable
+registry_address_R_type_pipe_ID_eX/r_reg[2]/synch_enable
+registry_address_R_type_pipe_ID_eX/r_reg[3]/synch_enable
+registry_address_R_type_pipe_ID_eX/r_reg[4]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[0]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[1]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[2]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[3]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[4]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[5]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[6]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[7]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[8]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[9]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[10]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[11]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[12]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[13]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[14]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[15]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[16]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[17]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[18]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[19]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[20]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[21]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[22]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[23]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[24]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[25]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[26]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[27]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[28]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[29]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[30]/synch_enable
+updated_pc_pipe_ID_EX/r_reg[31]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[0]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[1]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[2]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[3]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[4]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[5]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[6]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[7]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[8]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[9]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[10]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[11]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[12]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[13]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[14]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[15]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[16]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[17]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[18]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[19]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[20]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[21]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[22]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[23]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[24]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[25]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[26]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[27]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[28]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[29]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[30]/synch_enable
+updated_pc_pipe_IF_ID/r_reg[31]/synch_enable
+waddress_pipe_EX_MEM/r_reg[0]/synch_enable
+waddress_pipe_EX_MEM/r_reg[1]/synch_enable
+waddress_pipe_EX_MEM/r_reg[2]/synch_enable
+waddress_pipe_EX_MEM/r_reg[3]/synch_enable
+waddress_pipe_EX_MEM/r_reg[4]/synch_enable
+waddress_pipe_MEM_WB/r_reg[0]/synch_enable
+waddress_pipe_MEM_WB/r_reg[1]/synch_enable
+waddress_pipe_MEM_WB/r_reg[2]/synch_enable
+waddress_pipe_MEM_WB/r_reg[3]/synch_enable
+waddress_pipe_MEM_WB/r_reg[4]/synch_enable
+zero_flag_pipe_EX_MEM/r_reg[0]/synch_enable
 
 Information: Checking pulse_clock_cell_type...
 
@@ -1528,16 +2111,23 @@ link
   dw_foundation.sldb (library)
                               /esat/micas-data/software/synopsys_2017.09/libraries/syn/dw_foundation.sldb
 
-1
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
+0
 set_max_area 0
 1
 set_max_dynamic_power 0
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
 Information: Command 'set_max_dynamic_power' is obsolete and is being ignored. (INFO-102)
 0
 #set_clock_gating_style -num_stages 3
 #compile_ultra -no_autoungroup -no_seq_output_inversion -no_boundary_optimization -gate_clock
 #set_ungroup top_core true
 compile_ultra -no_autoungroup -no_seq_output_inversion  -gate_clock
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Information: Performing power optimization. (PWR-850)
 Alib files are up-to-date.
 Information: Evaluating DesignWare library utilization. (UISN-27)
@@ -1550,12 +2140,23 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 ============================================================================
 
 
-Information: There are 188 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 226 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
-Information: Uniquified 4 instances of design 'mux_2_DATA_W32'. (OPT-1056)
+Information: Uniquified 6 instances of design 'mux_2_DATA_W32'. (OPT-1056)
+Information: Uniquified 12 instances of design 'reg_arstn_en_DATA_W32'. (OPT-1056)
+Information: Uniquified 6 instances of design 'reg_arstn_en_DATA_W5'. (OPT-1056)
+Information: Uniquified 17 instances of design 'reg_arstn_en_DATA_W1'. (OPT-1056)
   Simplifying Design 'cpu'
+Information: Removing unused design 'reg_arstn_en_DATA_W1_6'. (OPT-1055)
+Information: Removing unused design 'reg_arstn_en_DATA_W1_13'. (OPT-1055)
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
 
   Loading target library 'saed32sram_tt1p05v25c'
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
 Loaded alib file './alib-52/saed32sram_tt1p05v25c.db.alib' (placeholder)
 Loaded alib file './alib-52/saed32rvt_tt1p05v25c.db.alib'
 Information: State dependent leakage is now switched from on to off.
@@ -1564,25 +2165,40 @@ Information: State dependent leakage is now switched from on to off.
   ------------------------
   Processing 'register_file_DATA_W32'
   Processing 'sram_ADDR_W10_DATA_W32'
-  Processing 'cpu'
   Processing 'alu_DATA_W32'
  Implement Synthetic for 'alu_DATA_W32'.
 Information: Added key list 'DesignWare' to design 'alu_DATA_W32'. (DDB-72)
-  Processing 'sram_ADDR_W9_DATA_W32'
+  Processing 'reg_arstn_en_DATA_W32_1'
   Processing 'reg_arstn_en_32_s00000000'
   Processing 'pc_DATA_W32'
  Implement Synthetic for 'pc_DATA_W32'.
-  Processing 'control_unit'
   Processing 'alu_control'
-  Processing 'branch_unit_DATA_W32'
- Implement Synthetic for 'branch_unit_DATA_W32'.
   Processing 'mux_2_DATA_W32_2'
-  Processing 'mux_2_DATA_W32_0'
-  Processing 'mux_2_DATA_W5'
-  Processing 'SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_0'
+  Processing 'SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_0'
+  Mapping integrated clock gating circuitry
+  Processing 'SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W5_0_0'
   Mapping integrated clock gating circuitry
   Processing 'SNPS_CLOCK_GATE_HIGH_reg_arstn_en_32_s00000000'
   Mapping integrated clock gating circuitry
+  Processing 'cpu'
+  Processing 'sram_ADDR_W9_DATA_W32'
+  Processing 'reg_arstn_en_DATA_W32_0'
+Information: The register 'r_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'r_reg[1]' is a constant and will be removed. (OPT-1206)
+  Processing 'control_unit'
+  Processing 'branch_unit_DATA_W32'
+ Implement Synthetic for 'branch_unit_DATA_W32'.
+  Processing 'reg_arstn_en_DATA_W5_0'
+  Processing 'reg_arstn_en_DATA_W2'
+  Processing 'mux_2_DATA_W5'
+  Processing 'SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_0'
+  Mapping integrated clock gating circuitry
+  Processing 'SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_0'
+  Mapping integrated clock gating circuitry
+  Processing 'reg_arstn_en_DATA_W1_0'
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
 
   Updating timing information
 Information: Updating design information... (UID-85)
@@ -1598,22 +2214,42 @@ Information: Skipping clock gating on design pc_DATA_W32, since there are no reg
 Information: Skipping clock gating on design sram_ADDR_W9_DATA_W32, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design control_unit, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design mux_2_DATA_W5, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design mux_2_DATA_W32_5, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design alu_control, since there are no registers. (PWR-806)
-Information: Skipping clock gating on design mux_2_DATA_W32_3, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design alu_DATA_W32, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design sram_ADDR_W10_DATA_W32, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design branch_unit_DATA_W32, since there are no registers. (PWR-806)
-Information: Skipping clock gating on design mux_2_DATA_W32_0, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design pc_DATA_W32_DW01_add_J2_0, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_0, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design alu_DATA_W32_RSOP_12, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design alu_DATA_W32_DW02_mult_J2_0, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design alu_DATA_W32_DW_cmp_J2_0, since there are no registers. (PWR-806)
-Information: Skipping clock gating on design branch_unit_DATA_W32_DW01_add_J2_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design branch_unit_DATA_W32_DW01_add_J3_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_10, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W5_0_5, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_0, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_32_s00000000, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design alu_DATA_W32_DP_OP_18J2_122_7468_J2_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design mux_2_DATA_W32_0, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design mux_2_DATA_W32_1, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design mux_2_DATA_W32_2, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design mux_2_DATA_W32_3, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design mux_2_DATA_W32_4, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W5_0_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W5_0_1, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W5_0_2, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W5_0_3, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W5_0_4, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_0, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_1, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_2, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_3, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_4, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_5, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_6, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_7, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_8, since there are no registers. (PWR-806)
+Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_reg_arstn_en_DATA_W32_1_9, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_1, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_2, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_3, since there are no registers. (PWR-806)
@@ -1645,10 +2281,83 @@ Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_29, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_30, since there are no registers. (PWR-806)
 Information: Skipping clock gating on design SNPS_CLOCK_GATE_HIGH_register_file_DATA_W32_31, since there are no registers. (PWR-806)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W2. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_15. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_16. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_7. (PWR-730)
 Information: Performing clock-gating on design register_file_DATA_W32. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_11. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W5_5. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_0. (PWR-730)
 Information: Performing clock-gating on design reg_arstn_en_32_s00000000. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_1. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_2. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_3. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_4. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_5. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_6. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_7. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_8. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_9. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W32_10. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W5_0. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W5_1. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W5_2. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W5_3. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W5_4. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_0. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_8. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_1. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_9. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_2. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_10. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_3. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_11. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_4. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_12. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_5. (PWR-730)
+Information: Performing clock-gating on design reg_arstn_en_DATA_W1_14. (PWR-730)
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
+Information: Complementing port 'wen' in design 'sram_ADDR_W10_DATA_W32'.
+	 The new name of the port is 'wen_BAR'. (OPT-319)
+Information: Complementing port 'dout[0]' in design 'reg_arstn_en_DATA_W1_7'.
+	 The new name of the port is 'dout[0]_BAR'. (OPT-319)
 Information: The register 'program_counter/pc_register/r_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'updated_pc_pipe_IF_ID/r_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'updated_pc_pipe_ID_EX/r_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'branch_pc_pipe_EX_MEM/r_reg[1]' is a constant and will be removed. (OPT-1206)
 Information: The register 'program_counter/pc_register/r_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'updated_pc_pipe_IF_ID/r_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'updated_pc_pipe_ID_EX/r_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'branch_pc_pipe_EX_MEM/r_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[16]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[17]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[18]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[19]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[20]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[21]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[22]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[23]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[24]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[25]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[26]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[27]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[28]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[29]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[30]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'immediate_extended_pipe_ID_EX/r_reg[31]' is removed because it is merged to 'immediate_extended_pipe_ID_EX/r_reg[15]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[18]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[19]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[20]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[21]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[22]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[23]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[24]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[25]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[26]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
+Information: In design 'cpu', the register 'jump_pc_pipe_EX_MEM/r_reg[27]' is removed because it is merged to 'jump_pc_pipe_EX_MEM/r_reg[17]'. (OPT-1215)
 
 Threshold voltage group cell usage:
 >> saed32cell_svt 100.00%
@@ -1720,36 +2429,36 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:12  246674.8      0.00       0.0      72.7                           523112416.0000
-    0:00:12  246674.8      0.00       0.0      72.7                           523112416.0000
-    0:00:12  246674.8      0.00       0.0      72.7                           523112416.0000
-    0:00:12  246674.8      0.00       0.0      72.7                           523112416.0000
+    0:00:12  249290.5      0.00       0.0       0.3                           584981824.0000
+    0:00:12  249290.5      0.00       0.0       0.3                           584981824.0000
+    0:00:12  249290.5      0.00       0.0       0.3                           584981824.0000
+    0:00:12  249290.5      0.00       0.0       0.3                           584981824.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_svt 100.00%
 
   Beginning WLM Backend Optimization
   --------------------------------------
-    0:00:13  246561.5      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
+    0:00:14  249183.2      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
 
 
   Beginning Design Rule Fixing  (max_transition)
@@ -1759,12 +2468,12 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
   Global Optimization (Phase 32)
   Global Optimization (Phase 33)
   Global Optimization (Phase 34)
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_svt 100.00%
@@ -1777,7 +2486,7 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:14  246561.0      0.00       0.0       0.3                           518579456.0000
+    0:00:14  249182.7      0.00       0.0       0.3                           580771840.0000
   Global Optimization (Phase 35)
   Global Optimization (Phase 36)
   Global Optimization (Phase 37)
@@ -1788,43 +2497,43 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 42)
   Global Optimization (Phase 43)
   Global Optimization (Phase 44)
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:14  246558.9      0.00       0.0       0.3                           518506752.0000
+    0:00:14  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:14  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:14  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:15  246558.9      0.00       0.0       0.3                           518506752.0000
-    0:00:15  247196.1      0.00       0.0       0.0                           518506752.0000
-    0:00:15  247196.1      0.00       0.0       0.0                           518506752.0000
-    0:00:15  247196.1      0.00       0.0       0.0                           518506752.0000
-    0:00:16  246593.0      0.00       0.0       0.0                           518506752.0000
-    0:00:16  246582.3      0.00       0.0       0.0                           518506752.0000
-    0:00:16  246582.3      0.00       0.0       0.0                           518506752.0000
-    0:00:16  246582.3      0.00       0.0       0.0                           518506752.0000
-    0:00:16  246582.3      0.00       0.0       0.0                           518506752.0000
-    0:00:17  246565.5      0.00       0.0       0.0                           518506752.0000
+    0:00:15  249180.7      0.00       0.0       0.3                           580699136.0000
+    0:00:15  249841.2      0.00       0.0       4.1                           580699136.0000
+    0:00:15  249841.2      0.00       0.0       4.1                           580699136.0000
+    0:00:15  249841.2      0.00       0.0       4.1                           580699136.0000
+    0:00:16  249212.2      0.00       0.0       0.0                           580699136.0000
+    0:00:16  249204.8      0.00       0.0       0.0                           580699136.0000
+    0:00:16  249204.8      0.00       0.0       0.0                           580699136.0000
+    0:00:16  249204.8      0.00       0.0       0.0                           580699136.0000
+    0:00:16  249204.8      0.00       0.0       0.0                           580699136.0000
+    0:00:17  249187.5      0.00       0.0       0.0                           580699136.0000
 
 
 Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
@@ -1833,26 +2542,249 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
   Optimization Complete
   ---------------------
 Warning: Design 'cpu' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
-     Net 'net9048': 1033 load(s), 1 driver(s)
+     Net 'reg_write_pipe_MEM_WB/arst_n': 1356 load(s), 1 driver(s)
   Loading target library 'saed32sram_tt1p05v25c'
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
 Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 Warning: Design has unannotated black box outputs. (PWR-428)
 1
 report_resources -hierarchy -minpower
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 Report : resources
 Design : cpu
 Version: N-2017.09-SP3
-Date   : Mon Mar 29 15:20:30 2021
+Date   : Fri May  7 20:52:06 2021
 ****************************************
 
 
 No minpower implementations to report
  
 ****************************************
+Design : reg_arstn_en_DATA_W1_0
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_1
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_2
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_0
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_3
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_4
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_5
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_7
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_8
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_9
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_10
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_11
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W2
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_12
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_14
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_15
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W1_16
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_1
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_2
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W5_0
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_3
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W5_1
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_4
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_5
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W5_2
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W5_3
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_6
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W5_4
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W5_5
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_7
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_8
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_9
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_10
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : reg_arstn_en_DATA_W32_11
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
 Design : register_file_DATA_W32
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : mux_2_DATA_W32_4
+****************************************
+
+No minpower implementations to report
+ 
+****************************************
+Design : mux_2_DATA_W32_3
 ****************************************
 
 No minpower implementations to report
@@ -1882,13 +2814,13 @@ Design : alu_DATA_W32
 No minpower implementations to report
  
 ****************************************
-Design : mux_2_DATA_W32_3
+Design : alu_control
 ****************************************
 
 No minpower implementations to report
  
 ****************************************
-Design : alu_control
+Design : mux_2_DATA_W32_5
 ****************************************
 
 No minpower implementations to report
@@ -1942,8 +2874,10 @@ set bus_naming_style {%s[%d]}
 set hdlout_internal_busses true
 true
 change_names -hierarchy -rule verilog
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
 Warning: In the design control_unit, net 'alu_op[0]' is connecting multiple ports. (UCN-1)
+Warning: In the design branch_unit_DATA_W32, net 'instruction[15]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[8]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[7]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[6]' is connecting multiple ports. (UCN-1)
@@ -1953,6 +2887,7 @@ Warning: In the design branch_unit_DATA_W32, net 'instruction[3]' is connecting 
 Warning: In the design branch_unit_DATA_W32, net 'instruction[2]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[1]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[0]' is connecting multiple ports. (UCN-1)
+Warning: In the design reg_arstn_en_DATA_W32_6, net 'dout[15]' is connecting multiple ports. (UCN-1)
 1
 define_name_rules name_rule -allowed "A-Z a-z 0-9 _" -max_length 255 -type cell
 1
@@ -1963,7 +2898,11 @@ define_name_rules name_rule -map {{"\\*cell\\*" "cell"}}
 define_name_rules name_rule -case_insensitive
 1
 change_names -hierarchy -rules name_rule
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
 Warning: In the design control_unit, net 'alu_op[0]' is connecting multiple ports. (UCN-1)
+Warning: In the design branch_unit_DATA_W32, net 'instruction[15]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[8]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[7]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[6]' is connecting multiple ports. (UCN-1)
@@ -1973,40 +2912,140 @@ Warning: In the design branch_unit_DATA_W32, net 'instruction[3]' is connecting 
 Warning: In the design branch_unit_DATA_W32, net 'instruction[2]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[1]' is connecting multiple ports. (UCN-1)
 Warning: In the design branch_unit_DATA_W32, net 'instruction[0]' is connecting multiple ports. (UCN-1)
+Warning: In the design reg_arstn_en_DATA_W32_6, net 'dout[15]' is connecting multiple ports. (UCN-1)
 1
 check_design
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Warning: Cannot find the design 'forwarding_unit' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'forwarding_unit' in 'cpu'. (LINK-5)
  
 ****************************************
 check_design summary:
 Version:     N-2017.09-SP3
-Date:        Mon Mar 29 15:20:30 2021
+Date:        Fri May  7 20:52:06 2021
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                    593
-    Unconnected ports (LINT-28)                                   583
-    Feedthrough (LINT-29)                                           9
-    Shorted outputs (LINT-31)                                       1
+Inputs/Outputs                                                    808
+    Unconnected ports (LINT-28)                                   783
+    Feedthrough (LINT-29)                                          10
+    Shorted outputs (LINT-31)                                      15
 
-Cells                                                             386
-    Connected to power or ground (LINT-32)                        188
-    Nets connected to multiple pins on same cell (LINT-33)         18
-    Hier pins without driver and load (LINT-60)                   180
+Cells                                                             520
+    Connected to power or ground (LINT-32)                        240
+    Nets connected to multiple pins on same cell (LINT-33)         27
+    Hier pins without driver and load (LINT-60)                   253
 
-Nets                                                              161
-    Unloaded nets (LINT-2)                                        161
+Nets                                                              254
+    Unloaded nets (LINT-2)                                        254
+
+Tristate                                                           22
+    A tristate bus has a non tri-state driver (LINT-34)            22
 --------------------------------------------------------------------------------
 
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_92' driven by pin 'branch_unit/jump_pc[0]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_91' driven by pin 'branch_unit/jump_pc[1]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_90' driven by pin 'branch_unit/jump_pc[11]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_89' driven by pin 'branch_unit/jump_pc[12]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_88' driven by pin 'branch_unit/jump_pc[13]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_87' driven by pin 'branch_unit/jump_pc[14]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_86' driven by pin 'branch_unit/jump_pc[15]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_85' driven by pin 'branch_unit/jump_pc[16]' has no loads. (LINT-2)
-Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_84' driven by pin 'branch_unit/jump_pc[17]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_185' driven by pin 'jump_pc_pipe_EX_MEM/dout[0]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_184' driven by pin 'jump_pc_pipe_EX_MEM/dout[1]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_183' driven by pin 'jump_pc_pipe_EX_MEM/dout[11]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_182' driven by pin 'jump_pc_pipe_EX_MEM/dout[12]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_181' driven by pin 'jump_pc_pipe_EX_MEM/dout[13]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_180' driven by pin 'jump_pc_pipe_EX_MEM/dout[14]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_179' driven by pin 'jump_pc_pipe_EX_MEM/dout[15]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_178' driven by pin 'jump_pc_pipe_EX_MEM/dout[16]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_177' driven by pin 'jump_pc_pipe_EX_MEM/dout[17]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_176' driven by pin 'jump_pc_pipe_EX_MEM/dout[18]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_175' driven by pin 'jump_pc_pipe_EX_MEM/dout[19]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_174' driven by pin 'jump_pc_pipe_EX_MEM/dout[20]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_173' driven by pin 'jump_pc_pipe_EX_MEM/dout[21]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_172' driven by pin 'jump_pc_pipe_EX_MEM/dout[22]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_171' driven by pin 'jump_pc_pipe_EX_MEM/dout[23]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_170' driven by pin 'jump_pc_pipe_EX_MEM/dout[24]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_169' driven by pin 'jump_pc_pipe_EX_MEM/dout[25]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_168' driven by pin 'jump_pc_pipe_EX_MEM/dout[26]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_167' driven by pin 'jump_pc_pipe_EX_MEM/dout[27]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_166' driven by pin 'jump_pc_pipe_EX_MEM/dout[28]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_165' driven by pin 'jump_pc_pipe_EX_MEM/dout[29]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_164' driven by pin 'jump_pc_pipe_EX_MEM/dout[30]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_163' driven by pin 'jump_pc_pipe_EX_MEM/dout[31]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_162' driven by pin 'branch_pc_pipe_EX_MEM/dout[0]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_161' driven by pin 'branch_pc_pipe_EX_MEM/dout[1]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_160' driven by pin 'branch_pc_pipe_EX_MEM/dout[11]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_159' driven by pin 'branch_pc_pipe_EX_MEM/dout[12]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_158' driven by pin 'branch_pc_pipe_EX_MEM/dout[13]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_157' driven by pin 'branch_pc_pipe_EX_MEM/dout[14]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_156' driven by pin 'branch_pc_pipe_EX_MEM/dout[15]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_155' driven by pin 'branch_pc_pipe_EX_MEM/dout[16]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_154' driven by pin 'branch_pc_pipe_EX_MEM/dout[17]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_153' driven by pin 'branch_pc_pipe_EX_MEM/dout[18]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_152' driven by pin 'branch_pc_pipe_EX_MEM/dout[19]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_151' driven by pin 'branch_pc_pipe_EX_MEM/dout[20]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_150' driven by pin 'branch_pc_pipe_EX_MEM/dout[21]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_149' driven by pin 'branch_pc_pipe_EX_MEM/dout[22]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_148' driven by pin 'branch_pc_pipe_EX_MEM/dout[23]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_147' driven by pin 'branch_pc_pipe_EX_MEM/dout[24]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_146' driven by pin 'branch_pc_pipe_EX_MEM/dout[25]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_145' driven by pin 'branch_pc_pipe_EX_MEM/dout[26]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_144' driven by pin 'branch_pc_pipe_EX_MEM/dout[27]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_143' driven by pin 'branch_pc_pipe_EX_MEM/dout[28]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_142' driven by pin 'branch_pc_pipe_EX_MEM/dout[29]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_141' driven by pin 'branch_pc_pipe_EX_MEM/dout[30]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_140' driven by pin 'branch_pc_pipe_EX_MEM/dout[31]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_139' driven by pin 'immediate_extended_pipe_ID_EX/dout[30]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_138' driven by pin 'immediate_extended_pipe_ID_EX/dout[31]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_137' driven by pin 'updated_pc_pipe_ID_EX/dout[0]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_136' driven by pin 'updated_pc_pipe_ID_EX/dout[1]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_135' driven by pin 'updated_pc_pipe_ID_EX/dout[11]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_134' driven by pin 'updated_pc_pipe_ID_EX/dout[12]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_133' driven by pin 'updated_pc_pipe_ID_EX/dout[13]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_132' driven by pin 'updated_pc_pipe_ID_EX/dout[14]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_131' driven by pin 'updated_pc_pipe_ID_EX/dout[15]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_130' driven by pin 'updated_pc_pipe_ID_EX/dout[16]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_129' driven by pin 'updated_pc_pipe_ID_EX/dout[17]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_128' driven by pin 'updated_pc_pipe_ID_EX/dout[18]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_127' driven by pin 'updated_pc_pipe_ID_EX/dout[19]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_126' driven by pin 'updated_pc_pipe_ID_EX/dout[20]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_125' driven by pin 'updated_pc_pipe_ID_EX/dout[21]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_124' driven by pin 'updated_pc_pipe_ID_EX/dout[22]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_123' driven by pin 'updated_pc_pipe_ID_EX/dout[23]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_122' driven by pin 'updated_pc_pipe_ID_EX/dout[24]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_121' driven by pin 'updated_pc_pipe_ID_EX/dout[25]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_120' driven by pin 'updated_pc_pipe_ID_EX/dout[26]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_119' driven by pin 'updated_pc_pipe_ID_EX/dout[27]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_118' driven by pin 'updated_pc_pipe_ID_EX/dout[28]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_117' driven by pin 'updated_pc_pipe_ID_EX/dout[29]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_116' driven by pin 'updated_pc_pipe_ID_EX/dout[30]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_115' driven by pin 'updated_pc_pipe_ID_EX/dout[31]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_114' driven by pin 'updated_pc_pipe_IF_ID/dout[0]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_113' driven by pin 'updated_pc_pipe_IF_ID/dout[1]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_112' driven by pin 'updated_pc_pipe_IF_ID/dout[11]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_111' driven by pin 'updated_pc_pipe_IF_ID/dout[12]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_110' driven by pin 'updated_pc_pipe_IF_ID/dout[13]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_109' driven by pin 'updated_pc_pipe_IF_ID/dout[14]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_108' driven by pin 'updated_pc_pipe_IF_ID/dout[15]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_107' driven by pin 'updated_pc_pipe_IF_ID/dout[16]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_106' driven by pin 'updated_pc_pipe_IF_ID/dout[17]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_105' driven by pin 'updated_pc_pipe_IF_ID/dout[18]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_104' driven by pin 'updated_pc_pipe_IF_ID/dout[19]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_103' driven by pin 'updated_pc_pipe_IF_ID/dout[20]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_102' driven by pin 'updated_pc_pipe_IF_ID/dout[21]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_101' driven by pin 'updated_pc_pipe_IF_ID/dout[22]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_100' driven by pin 'updated_pc_pipe_IF_ID/dout[23]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_99' driven by pin 'updated_pc_pipe_IF_ID/dout[24]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_98' driven by pin 'updated_pc_pipe_IF_ID/dout[25]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_97' driven by pin 'updated_pc_pipe_IF_ID/dout[26]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_96' driven by pin 'updated_pc_pipe_IF_ID/dout[27]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_95' driven by pin 'updated_pc_pipe_IF_ID/dout[28]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_94' driven by pin 'updated_pc_pipe_IF_ID/dout[29]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_93' driven by pin 'updated_pc_pipe_IF_ID/dout[30]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_92' driven by pin 'updated_pc_pipe_IF_ID/dout[31]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_91' driven by pin 'branch_unit/jump_pc[0]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_90' driven by pin 'branch_unit/jump_pc[1]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_89' driven by pin 'branch_unit/jump_pc[11]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_88' driven by pin 'branch_unit/jump_pc[12]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_87' driven by pin 'branch_unit/jump_pc[13]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_86' driven by pin 'branch_unit/jump_pc[14]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_85' driven by pin 'branch_unit/jump_pc[15]' has no loads. (LINT-2)
+Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_84' driven by pin 'branch_unit/jump_pc[16]' has no loads. (LINT-2)
 Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_83' driven by pin 'branch_unit/jump_pc[18]' has no loads. (LINT-2)
 Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_82' driven by pin 'branch_unit/jump_pc[19]' has no loads. (LINT-2)
 Warning: In design 'cpu', net 'SYNOPSYS_UNCONNECTED_81' driven by pin 'branch_unit/jump_pc[20]' has no loads. (LINT-2)
@@ -2380,22 +3419,6 @@ Warning: In design 'sram_ADDR_W9_DATA_W32', port 'wdata[2]' is not connected to 
 Warning: In design 'sram_ADDR_W9_DATA_W32', port 'wdata[1]' is not connected to any nets. (LINT-28)
 Warning: In design 'sram_ADDR_W9_DATA_W32', port 'wdata[0]' is not connected to any nets. (LINT-28)
 Warning: In design 'control_unit', port 'mem_read' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[31]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[30]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[29]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[28]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[27]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[26]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[25]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[24]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[23]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[22]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[21]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[20]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[19]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[18]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[17]' is not connected to any nets. (LINT-28)
-Warning: In design 'mux_2_DATA_W32_3', port 'input_a[16]' is not connected to any nets. (LINT-28)
 Warning: In design 'alu_DATA_W32', port 'overflow' is not connected to any nets. (LINT-28)
 Warning: In design 'sram_ADDR_W10_DATA_W32', port 'addr[31]' is not connected to any nets. (LINT-28)
 Warning: In design 'sram_ADDR_W10_DATA_W32', port 'addr[30]' is not connected to any nets. (LINT-28)
@@ -2482,7 +3505,6 @@ Warning: In design 'branch_unit_DATA_W32', port 'instruction[19]' is not connect
 Warning: In design 'branch_unit_DATA_W32', port 'instruction[18]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'instruction[17]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'instruction[16]' is not connected to any nets. (LINT-28)
-Warning: In design 'branch_unit_DATA_W32', port 'instruction[15]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'instruction[14]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'instruction[13]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'instruction[12]' is not connected to any nets. (LINT-28)
@@ -2549,7 +3571,6 @@ Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[21]' is not connected t
 Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[20]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[19]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[18]' is not connected to any nets. (LINT-28)
-Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[17]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[16]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[15]' is not connected to any nets. (LINT-28)
 Warning: In design 'branch_unit_DATA_W32', port 'jump_pc[14]' is not connected to any nets. (LINT-28)
@@ -2696,6 +3717,224 @@ Warning: In design 'mux_2_DATA_W32_1', port 'mux_out[12]' is not connected to an
 Warning: In design 'mux_2_DATA_W32_1', port 'mux_out[11]' is not connected to any nets. (LINT-28)
 Warning: In design 'mux_2_DATA_W32_1', port 'mux_out[1]' is not connected to any nets. (LINT-28)
 Warning: In design 'mux_2_DATA_W32_1', port 'mux_out[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'mux_2_DATA_W32_3', port 'input_a[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'din[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_10', port 'dout[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'din[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_9', port 'dout[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'din[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'dout[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_6', port 'dout[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'din[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_3', port 'dout[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'din[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_arstn_en_DATA_W32_0', port 'dout[0]' is not connected to any nets. (LINT-28)
 Warning: In design 'reg_arstn_en_32_s00000000', port 'din[31]' is not connected to any nets. (LINT-28)
 Warning: In design 'reg_arstn_en_32_s00000000', port 'din[30]' is not connected to any nets. (LINT-28)
 Warning: In design 'reg_arstn_en_32_s00000000', port 'din[29]' is not connected to any nets. (LINT-28)
@@ -2742,6 +3981,7 @@ Warning: In design 'reg_arstn_en_32_s00000000', port 'dout[12]' is not connected
 Warning: In design 'reg_arstn_en_32_s00000000', port 'dout[11]' is not connected to any nets. (LINT-28)
 Warning: In design 'reg_arstn_en_32_s00000000', port 'dout[1]' is not connected to any nets. (LINT-28)
 Warning: In design 'reg_arstn_en_32_s00000000', port 'dout[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'branch_unit_DATA_W32', input port 'instruction[15]' is connected directly to output port 'jump_pc[17]'. (LINT-29)
 Warning: In design 'branch_unit_DATA_W32', input port 'instruction[8]' is connected directly to output port 'jump_pc[10]'. (LINT-29)
 Warning: In design 'branch_unit_DATA_W32', input port 'instruction[7]' is connected directly to output port 'jump_pc[9]'. (LINT-29)
 Warning: In design 'branch_unit_DATA_W32', input port 'instruction[6]' is connected directly to output port 'jump_pc[8]'. (LINT-29)
@@ -2752,10 +3992,20 @@ Warning: In design 'branch_unit_DATA_W32', input port 'instruction[2]' is connec
 Warning: In design 'branch_unit_DATA_W32', input port 'instruction[1]' is connected directly to output port 'jump_pc[3]'. (LINT-29)
 Warning: In design 'branch_unit_DATA_W32', input port 'instruction[0]' is connected directly to output port 'jump_pc[2]'. (LINT-29)
 Warning: In design 'control_unit', output port 'alu_op[0]' is connected directly to output port 'branch'. (LINT-31)
-Warning: In design 'cpu', a pin on submodule 'program_counter' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'jump_pc[1]' is connected to logic 0. 
-Warning: In design 'cpu', a pin on submodule 'program_counter' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'jump_pc[0]' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[28]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[27]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[26]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[25]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[24]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[23]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[22]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[21]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[20]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[19]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[18]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[17]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[16]'. (LINT-31)
+Warning: In design 'reg_arstn_en_DATA_W32_6', output port 'dout[29]' is connected directly to output port 'dout[15]'. (LINT-31)
 Warning: In design 'cpu', a pin on submodule 'instruction_memory' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'addr[31]' is connected to logic 0. 
 Warning: In design 'cpu', a pin on submodule 'instruction_memory' is connected to logic 1 or logic 0. (LINT-32)
@@ -3058,10 +4308,82 @@ Warning: In design 'cpu', a pin on submodule 'branch_unit' is connected to logic
    Pin 'branch_offset[31]' is connected to logic 0. 
 Warning: In design 'cpu', a pin on submodule 'branch_unit' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'branch_offset[30]' is connected to logic 0. 
-Warning: In design 'pc_DATA_W32', a pin on submodule 'mux_jump' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'input_a[1]' is connected to logic 0. 
-Warning: In design 'pc_DATA_W32', a pin on submodule 'mux_jump' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'input_a[0]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[31]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[30]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[29]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[28]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[27]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[26]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[25]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[24]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[23]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[22]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[21]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[20]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[19]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[18]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[17]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'immediate_extended_pipe_ID_EX' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[16]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[31]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[30]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[29]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[28]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[27]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[26]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[25]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[24]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[23]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[22]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[21]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[20]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[19]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[18]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[16]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[15]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[14]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[13]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[12]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[11]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[1]' is connected to logic 0. 
+Warning: In design 'cpu', a pin on submodule 'jump_pc_pipe_EX_MEM' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'din[0]' is connected to logic 0. 
 Warning: In design 'register_file_DATA_W32', a pin on submodule 'clk_gate_reg_array_reg_0_' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'TE' is connected to logic 0. 
 Warning: In design 'register_file_DATA_W32', a pin on submodule 'clk_gate_reg_array_reg_1_' is connected to logic 1 or logic 0. (LINT-32)
@@ -3126,44 +4448,120 @@ Warning: In design 'register_file_DATA_W32', a pin on submodule 'clk_gate_reg_ar
    Pin 'TE' is connected to logic 0. 
 Warning: In design 'register_file_DATA_W32', a pin on submodule 'clk_gate_reg_array_reg_31_' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_11', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_10', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_9', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_8', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_7', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W5_5', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W5_4', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_6', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W5_3', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W5_2', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_5', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_4', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W5_1', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_3', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W5_0', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_2', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_1', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
+Warning: In design 'reg_arstn_en_DATA_W32_0', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
 Warning: In design 'reg_arstn_en_32_s00000000', a pin on submodule 'clk_gate_r_reg' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'TE' is connected to logic 0. 
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'instruction_memory'. (LINT-33)
    Net 'n_Logic0_' is connected to pins 'wen', 'wdata[31]'', 'wdata[30]', 'wdata[29]', 'wdata[28]', 'wdata[27]', 'wdata[26]', 'wdata[25]', 'wdata[24]', 'wdata[23]', 'wdata[22]', 'wdata[21]', 'wdata[20]', 'wdata[19]', 'wdata[18]', 'wdata[17]', 'wdata[16]', 'wdata[15]', 'wdata[14]', 'wdata[13]', 'wdata[12]', 'wdata[11]', 'wdata[10]', 'wdata[9]', 'wdata[8]', 'wdata[7]', 'wdata[6]', 'wdata[5]', 'wdata[4]', 'wdata[3]', 'wdata[2]', 'wdata[1]', 'wdata[0]'.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended_31' is connected to pins 'instruction[15]', 'branch_offset[29]'', 'branch_offset[28]', 'branch_offset[27]', 'branch_offset[26]', 'branch_offset[25]', 'branch_offset[24]', 'branch_offset[23]', 'branch_offset[22]', 'branch_offset[21]', 'branch_offset[20]', 'branch_offset[19]', 'branch_offset[18]', 'branch_offset[17]', 'branch_offset[16]', 'branch_offset[15]'.
+   Net 'immediate_extended_ID_EX[25]' is connected to pins 'instruction[25]', 'branch_offset[25]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[14]' is connected to pins 'instruction[14]', 'branch_offset[14]''.
+   Net 'immediate_extended_ID_EX[24]' is connected to pins 'instruction[24]', 'branch_offset[24]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[13]' is connected to pins 'instruction[13]', 'branch_offset[13]''.
+   Net 'immediate_extended_ID_EX[23]' is connected to pins 'instruction[23]', 'branch_offset[23]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[12]' is connected to pins 'instruction[12]', 'branch_offset[12]''.
+   Net 'immediate_extended_ID_EX[22]' is connected to pins 'instruction[22]', 'branch_offset[22]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[11]' is connected to pins 'instruction[11]', 'branch_offset[11]''.
+   Net 'immediate_extended_ID_EX[21]' is connected to pins 'instruction[21]', 'branch_offset[21]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[10]' is connected to pins 'instruction[10]', 'branch_offset[10]''.
+   Net 'immediate_extended_ID_EX[20]' is connected to pins 'instruction[20]', 'branch_offset[20]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[9]' is connected to pins 'instruction[9]', 'branch_offset[9]''.
+   Net 'immediate_extended_ID_EX[19]' is connected to pins 'instruction[19]', 'branch_offset[19]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[8]' is connected to pins 'instruction[8]', 'branch_offset[8]''.
+   Net 'immediate_extended_ID_EX[18]' is connected to pins 'instruction[18]', 'branch_offset[18]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[7]' is connected to pins 'instruction[7]', 'branch_offset[7]''.
+   Net 'immediate_extended_ID_EX[17]' is connected to pins 'instruction[17]', 'branch_offset[17]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[6]' is connected to pins 'instruction[6]', 'branch_offset[6]''.
+   Net 'immediate_extended_ID_EX[16]' is connected to pins 'instruction[16]', 'branch_offset[16]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[5]' is connected to pins 'instruction[5]', 'branch_offset[5]''.
+   Net 'immediate_extended_ID_EX[15]' is connected to pins 'instruction[15]', 'branch_offset[15]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[4]' is connected to pins 'instruction[4]', 'branch_offset[4]''.
+   Net 'immediate_extended_ID_EX[14]' is connected to pins 'instruction[14]', 'branch_offset[14]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[3]' is connected to pins 'instruction[3]', 'branch_offset[3]''.
+   Net 'immediate_extended_ID_EX[13]' is connected to pins 'instruction[13]', 'branch_offset[13]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[2]' is connected to pins 'instruction[2]', 'branch_offset[2]''.
+   Net 'immediate_extended_ID_EX[12]' is connected to pins 'instruction[12]', 'branch_offset[12]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[1]' is connected to pins 'instruction[1]', 'branch_offset[1]''.
+   Net 'immediate_extended_ID_EX[11]' is connected to pins 'instruction[11]', 'branch_offset[11]''.
 Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
-   Net 'immediate_extended[0]' is connected to pins 'instruction[0]', 'branch_offset[0]''.
-Warning: In design 'pc_DATA_W32', the same net is connected to more than one pin on submodule 'mux_jump'. (LINT-33)
-   Net 'n1' is connected to pins 'input_a[1]', 'input_a[0]''.
+   Net 'immediate_extended_ID_EX[10]' is connected to pins 'instruction[10]', 'branch_offset[10]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[9]' is connected to pins 'instruction[9]', 'branch_offset[9]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[8]' is connected to pins 'instruction[8]', 'branch_offset[8]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[7]' is connected to pins 'instruction[7]', 'branch_offset[7]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[6]' is connected to pins 'instruction[6]', 'branch_offset[6]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[5]' is connected to pins 'instruction[5]', 'branch_offset[5]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[4]' is connected to pins 'instruction[4]', 'branch_offset[4]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[3]' is connected to pins 'instruction[3]', 'branch_offset[3]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[2]' is connected to pins 'instruction[2]', 'branch_offset[2]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[1]' is connected to pins 'instruction[1]', 'branch_offset[1]''.
+Warning: In design 'cpu', the same net is connected to more than one pin on submodule 'branch_unit'. (LINT-33)
+   Net 'immediate_extended_ID_EX[0]' is connected to pins 'instruction[0]', 'branch_offset[0]''.
+Warning: In design 'cpu', three-state bus 'reg_write_EX_MEM' has non three-state driver 'reg_write_pipe_EX_MEM/r_reg_0_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_ID_EX[0]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg_0_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_ID_EX[1]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg_1_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_ID_EX[2]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg_2_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_ID_EX[3]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg_3_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register2_ID_EX[4]' has non three-state driver 'address_register2_pipe_ID_EX/r_reg_4_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_ID_EX[0]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg_0_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_ID_EX[1]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg_1_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_ID_EX[2]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg_2_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_ID_EX[3]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg_3_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'address_register1_ID_EX[4]' has non three-state driver 'address_register1_pipe_ID_EX/r_reg_4_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_EX_MEM[0]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg_0_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_EX_MEM[1]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg_1_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_EX_MEM[2]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg_2_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_EX_MEM[3]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg_3_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_EX_MEM[4]' has non three-state driver 'waddress_pipe_EX_MEM/r_reg_4_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_MEM_WB[0]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg_0_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_MEM_WB[1]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg_1_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_MEM_WB[2]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg_2_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_MEM_WB[3]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg_3_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'waddress_MEM_WB[4]' has non three-state driver 'waddress_pipe_MEM_WB/r_reg_4_/Q'. (LINT-34)
+Warning: In design 'cpu', three-state bus 'reg_write_MEM_WB' has non three-state driver 'reg_write_pipe_MEM_WB/r_reg_0_/Q'. (LINT-34)
 Warning: In design 'cpu', input pin 'branch_pc[31]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'branch_pc[30]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'branch_pc[29]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
@@ -3208,6 +4606,8 @@ Warning: In design 'cpu', input pin 'jump_pc[14]' of hierarchical cell 'program_
 Warning: In design 'cpu', input pin 'jump_pc[13]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'jump_pc[12]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'jump_pc[11]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'jump_pc[1]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'jump_pc[0]' of hierarchical cell 'program_counter' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'updated_pc[31]' of hierarchical cell 'branch_unit' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'updated_pc[30]' of hierarchical cell 'branch_unit' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'updated_pc[29]' of hierarchical cell 'branch_unit' has no internal loads and is not connected to any nets. (LINT-60)
@@ -3231,6 +4631,75 @@ Warning: In design 'cpu', input pin 'updated_pc[12]' of hierarchical cell 'branc
 Warning: In design 'cpu', input pin 'updated_pc[11]' of hierarchical cell 'branch_unit' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'updated_pc[1]' of hierarchical cell 'branch_unit' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'cpu', input pin 'updated_pc[0]' of hierarchical cell 'branch_unit' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[31]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[30]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[29]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[28]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[27]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[26]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[25]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[24]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[23]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[22]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[21]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[20]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[19]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[18]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[17]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[16]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[15]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[14]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[13]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[12]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[11]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[1]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[0]' of hierarchical cell 'updated_pc_pipe_IF_ID' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[31]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[30]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[29]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[28]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[27]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[26]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[25]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[24]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[23]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[22]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[21]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[20]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[19]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[18]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[17]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[16]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[15]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[14]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[13]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[12]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[11]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[1]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[0]' of hierarchical cell 'updated_pc_pipe_ID_EX' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[31]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[30]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[29]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[28]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[27]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[26]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[25]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[24]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[23]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[22]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[21]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[20]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[19]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[18]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[17]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[16]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[15]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[14]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[13]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[12]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[11]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[1]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'cpu', input pin 'din[0]' of hierarchical cell 'branch_pc_pipe_EX_MEM' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_a[31]' of hierarchical cell 'mux_branch' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_a[30]' of hierarchical cell 'mux_branch' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_a[29]' of hierarchical cell 'mux_branch' has no internal loads and is not connected to any nets. (LINT-60)
@@ -3298,6 +4767,8 @@ Warning: In design 'pc_DATA_W32', input pin 'input_a[14]' of hierarchical cell '
 Warning: In design 'pc_DATA_W32', input pin 'input_a[13]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_a[12]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_a[11]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'pc_DATA_W32', input pin 'input_a[1]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
+Warning: In design 'pc_DATA_W32', input pin 'input_a[0]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_b[31]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_b[30]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
 Warning: In design 'pc_DATA_W32', input pin 'input_b[29]' of hierarchical cell 'mux_jump' has no internal loads and is not connected to any nets. (LINT-60)
@@ -3367,6 +4838,7 @@ Current design is 'cpu'.
 {cpu}
 #change_names -rule verilog -hierarchy
 write -hierarchy -f verilog -output "./gate/${top_des_name}.v"
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Writing verilog file '/users/students/r0699417/CA_Exercise/SYNTHESIS/gate/cpu.v'.
 Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
 1
@@ -3374,8 +4846,10 @@ Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
 #write -hierarchy -f verilog -output "./../NETLISTS/${top_des_name}_ps.v"
 #write_sdc -nosplit  ../BACKEND/DESIGN_IN/${top_des_name}_synthesis.sdc
 write_sdf  "./sdf/$top_des_name.sdf"
+Warning: Design 'cpu' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
 Information: Writing timing information to file '/users/students/r0699417/CA_Exercise/SYNTHESIS/sdf/cpu.sdf'. (WT-3)
+Warning: Design contains black-box components.  These cells will have no timing information. (WT-7)
 1
 #write_sdf  ./../netlist/top_dig_ps.sdf
 #
